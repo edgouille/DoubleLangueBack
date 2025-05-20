@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DoubleLangue.Domain\DoubleLangue.Domain.csproj" />
+    <ProjectReference Include="..\DoubleLangue.Infrastructure\DoubleLangue.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

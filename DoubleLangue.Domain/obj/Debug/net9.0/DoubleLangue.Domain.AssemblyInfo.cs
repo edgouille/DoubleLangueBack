@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DoubleLangue.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1ef52663167261edfc496e1e6172afc30e5171c9")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dec57197a18b7af6388a50098d9986777e021a24")]
 [assembly: System.Reflection.AssemblyProductAttribute("DoubleLangue.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DoubleLangue.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
