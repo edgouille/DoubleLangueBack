@@ -1,13 +1,37 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿using System;
+using Microsoft.EntityFrameworkCore;
 
-using DoubleLangue.Services;
-using DoubleLangue.Services.Interfaces;
+namespace DoubleLangue.Test
+{
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            Console.WriteLine("Entrez la chaîne de connexion :");
+            string? connectionString = Console.ReadLine();
+            if (string.IsNullOrWhiteSpace(connectionString))
+            {
+                Console.WriteLine("Chaîne de connexion invalide.");
+                return;
+            }
 
+            var optionsBuilder = new DbContextOptionsBuilder<TestDbContext>();
+            optionsBuilder.UseNpgsql(connectionString);
 
-var myService = new MathProblemGeneratorService();
+            using (var context = new TestDbContext(optionsBuilder.Options))
+            {
+                // Utilisez le contexte ici, par exemple :
+                // var count = context.MyEntities.Count();
+                Console.WriteLine("Connexion à la base de données réussie.");
+            }
+        }
+    }
 
-var test = myService.GenerateMathProblem(3);
+    public class TestDbContext : DbContext
+    {
+        public TestDbContext(DbContextOptions<TestDbContext> options) : base(options) { }
 
-
-Console.WriteLine(test.Question);
-Console.WriteLine(test.Answer);
+        // Ajoutez vos DbSet ici, par exemple :
+        // public DbSet<MyEntity> MyEntities { get; set; }
+    }
+}

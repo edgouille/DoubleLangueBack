@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DoubleLangue.test")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dec57197a18b7af6388a50098d9986777e021a24")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+969b0ac04b1dc727e393a53d389f84274da9bbfa")]
 [assembly: System.Reflection.AssemblyProductAttribute("DoubleLangue.test")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DoubleLangue.test")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -15,13 +15,20 @@ public class UserController : ControllerBase
         _userService = userService;
     }
 
-    [HttpPost]
-    public IActionResult CreateUser([FromBody] UserDto userDto)
-    {
-        // TODO: Ajouter la logique de création d'utilisateur
+    //[HttpPost]
+    //public IActionResult CreateUser([FromBody] UserDto userDto)
+    //{
+    //    // TODO: Ajouter la logique de création d'utilisateur
 
-        _userService.CreateAsync(userDto);
-        return Ok();
+    //    _userService.CreateAsync(userDto);
+    //    return Ok();
+    //}
+
+    [HttpPost]
+    public async Task<IActionResult> CreateUser(CreateUserRequest request)
+    {
+        var user = await _userService.CreateUserAsync(request.UserName, request.Email, request.Password);
+        return CreatedAtAction(nameof(CreateUser), new { id = user.Id }, user);
     }
 
     [HttpGet("{id}")]
@@ -52,3 +59,5 @@ public class UserController : ControllerBase
         return Ok(/* liste des utilisateurs */);
     }
 }
+
+public record CreateUserRequest(string UserName, string Email, string Password);

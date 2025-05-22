@@ -13,6 +13,13 @@ public class UserRepository : IUserRepository
         _context = context;
     }
 
+    public async Task<User> CreateUserAsync(User user)
+    {
+        _context.Users.Add(user);
+        await _context.SaveChangesAsync();
+        return user;
+    }
+
     public async Task<User?> GetByIdAsync(Guid id)
     {
         try
@@ -37,22 +44,22 @@ public class UserRepository : IUserRepository
         }
     }
 
-    public async Task AddAsync(User user)
-    {
-        try
-        {
-            _context.Users.Add(user);
-            await _context.SaveChangesAsync();
-        }
-        catch (DbUpdateException ex) when (ex.InnerException != null && ex.InnerException.Message.Contains("duplicate"))
-        {
-            throw new InvalidOperationException("L'utilisateur existe déjà.", ex);
-        }
-        catch (Exception ex)
-        {
-            throw new Exception("Erreur lors de l'ajout de l'utilisateur.", ex);
-        }
-    }
+    //public async Task AddAsync(User user)
+    //{
+    //    try
+    //    {
+    //        _context.Users.Add(user);
+    //        await _context.SaveChangesAsync();
+    //    }
+    //    catch (DbUpdateException ex) when (ex.InnerException != null && ex.InnerException.Message.Contains("duplicate"))
+    //    {
+    //        throw new InvalidOperationException("L'utilisateur existe déjà.", ex);
+    //    }
+    //    catch (Exception ex)
+    //    {
+    //        throw new Exception("Erreur lors de l'ajout de l'utilisateur.", ex);
+    //    }
+    //}
 
     public async Task UpdateAsync(User user)
     {

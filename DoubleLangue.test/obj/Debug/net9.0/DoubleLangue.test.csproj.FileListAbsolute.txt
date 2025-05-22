@@ -18,3 +18,6 @@ C:\Users\edand\Desktop\cours\B3\Projet File Rouge\DoubleLangue.test\obj\Debug\ne
 C:\Users\edand\Desktop\cours\B3\Projet File Rouge\DoubleLangue.test\obj\Debug\net9.0\DoubleLangue.test.pdb
 C:\Users\edand\Desktop\cours\B3\Projet File Rouge\DoubleLangue.test\obj\Debug\net9.0\DoubleLangue.test.genruntimeconfig.cache
 C:\Users\edand\Desktop\cours\B3\Projet File Rouge\DoubleLangue.test\obj\Debug\net9.0\ref\DoubleLangue.test.dll
+C:\Users\edand\Desktop\cours\B3\Projet File Rouge\DoubleLangueBack\DoubleLangue.test\obj\Debug\net9.0\DoubleLangue.test.dll
+C:\Users\edand\Desktop\cours\B3\Projet File Rouge\DoubleLangueBack\DoubleLangue.test\obj\Debug\net9.0\refint\DoubleLangue.test.dll
+C:\Users\edand\Desktop\cours\B3\Projet File Rouge\DoubleLangueBack\DoubleLangue.test\obj\Debug\net9.0\DoubleLangue.test.pdb

@@ -27,32 +27,47 @@ public class UserService : IUserService
         return new User();
     }
 
-    public async Task CreateAsync(UserDto user)
+    //public async Task CreateAsync(UserDto user)
+    //{
+    //    if (user == null)
+    //        throw new ArgumentNullException(nameof(user));
+    //    if (string.IsNullOrEmpty(user.UserName))
+    //        throw new ArgumentException("UserName ne peut pas être null ou vide.", nameof(user.UserName));
+    //    if (string.IsNullOrEmpty(user.Email))
+    //        throw new ArgumentException("Email ne peut pas être null ou vide.", nameof(user.Email));
+    //    if (string.IsNullOrEmpty(user.Role))
+    //        throw new ArgumentException("Role ne peut pas être null ou vide.", nameof(user.Role));
+    //    if (string.IsNullOrEmpty(user.Password))
+    //        throw new ArgumentException("Password ne peut pas être null ou vide.", nameof(user.Password));
+
+    //    var hashedPassword = _passwordHasher.Hash(user.Password);
+
+    //    var newUser = new User
+    //    {
+    //        Id = Guid.NewGuid(),
+    //        UserName = user.UserName,
+    //        Email = user.Email,
+    //        Password = hashedPassword,
+    //        Role = user.Role,
+    //        CreatedAt = DateTime.UtcNow
+    //    };
+
+    //    await _userRepository.AddAsync(newUser);
+    //}
+
+    public async Task<User> CreateUserAsync(string userName, string email, string password)
     {
-        if (user == null)
-            throw new ArgumentNullException(nameof(user));
-        if (string.IsNullOrEmpty(user.UserName))
-            throw new ArgumentException("UserName ne peut pas être null ou vide.", nameof(user.UserName));
-        if (string.IsNullOrEmpty(user.Email))
-            throw new ArgumentException("Email ne peut pas être null ou vide.", nameof(user.Email));
-        if (string.IsNullOrEmpty(user.Role))
-            throw new ArgumentException("Role ne peut pas être null ou vide.", nameof(user.Role));
-        if (string.IsNullOrEmpty(user.Password))
-            throw new ArgumentException("Password ne peut pas être null ou vide.", nameof(user.Password));
-
-        var hashedPassword = _passwordHasher.Hash(user.Password);
-
-        var newUser = new User
+        var user = new User
         {
             Id = Guid.NewGuid(),
-            UserName = user.UserName,
-            Email = user.Email,
-            Password = hashedPassword,
-            Role = user.Role,
+            UserName = userName,
+            Email = email,
+            Password = password,
+            Role = "User",
             CreatedAt = DateTime.UtcNow
         };
 
-        await _userRepository.AddAsync(newUser);
+        return await _userRepository.CreateUserAsync(user);
     }
 
     public async Task UpdateAsync(UserDto user)
