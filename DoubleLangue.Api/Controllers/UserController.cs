@@ -15,27 +15,31 @@ public class UserController : ControllerBase
         _userService = userService;
     }
 
-    //[HttpPost]
-    //public IActionResult CreateUser([FromBody] UserDto userDto)
-    //{
-    //    // TODO: Ajouter la logique de création d'utilisateur
-
-    //    _userService.CreateAsync(userDto);
-    //    return Ok();
-    //}
-
     [HttpPost]
-    public async Task<IActionResult> CreateUser(CreateUserRequest request)
+    public async Task<IActionResult> CreateUser(UserDto request)
     {
-        var user = await _userService.CreateUserAsync(request.UserName, request.Email, request.Password);
-        return CreatedAtAction(nameof(CreateUser), new { id = user.Id }, user);
+        try
+        {
+            var user = await _userService.CreateAsync(request);
+            // Création de l'URI pour la ressource nouvellement créée
+            return CreatedAtAction(nameof(GetUserById), new { id = user.Id }, user);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
     }
 
     [HttpGet("{id}")]
-    public IActionResult GetUserById(int id)
+    public async Task<IActionResult> GetUserById(string id)
     {
-        // TODO: Ajouter la logique de récupération d'un utilisateur par ID
-        return Ok(/* utilisateur */);
+        if (!Guid.TryParse(id, out var guid))
+            return BadRequest("Invalid GUID format.");
+
+        var item = await _userService.GetByIdAsync(guid);
+        if (item == null) return NotFound();
+        return Ok(item);
     }
 
     [HttpPut("{id}")]
@@ -59,5 +63,3 @@ public class UserController : ControllerBase
         return Ok(/* liste des utilisateurs */);
     }
 }
-
-public record CreateUserRequest(string UserName, string Email, string Password);

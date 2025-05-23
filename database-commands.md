@@ -30,16 +30,12 @@ dotnet add package Microsoft.EntityFrameworkCore.Design
 ## 📤 Create a Migration
 
 ```bash
-dotnet ef migrations add <MigrationName> \
-  --project DoubleLangue.Infrastructure \
-  --startup-project DoubleLangue.Api
+dotnet ef migrations add <MigrationName> --project DoubleLangue.Infrastructure --startup-project DoubleLangue.Api
 ```
 
 **Example:**
 ```bash
-dotnet ef migrations add InitialMigration \
-  --project DoubleLangue.Infrastructure \
-  --startup-project DoubleLangue.Api
+dotnet ef migrations add InitialMigration --project DoubleLangue.Infrastructure --startup-project DoubleLangue.Api
 ```
 
 ---
@@ -47,9 +43,7 @@ dotnet ef migrations add InitialMigration \
 ## 📥 Apply Migrations to the Database
 
 ```bash
-dotnet ef database update \
-  --project DoubleLangue.Infrastructure \
-  --startup-project DoubleLangue.Api
+dotnet ef database update --project DoubleLangue.Infrastructure --startup-project DoubleLangue.Api
 ```
 
 ---
@@ -59,9 +53,7 @@ dotnet ef database update \
 > Only if it hasn’t been applied to the database yet:
 
 ```bash
-dotnet ef migrations remove \
-  --project DoubleLangue.Infrastructure \
-  --startup-project DoubleLangue.Api
+dotnet ef migrations remove --project DoubleLangue.Infrastructure --startup-project DoubleLangue.Api
 ```
 
 ---
@@ -69,9 +61,7 @@ dotnet ef migrations remove \
 ## 📃 List All Migrations
 
 ```bash
-dotnet ef migrations list \
-  --project DoubleLangue.Infrastructure \
-  --startup-project DoubleLangue.Api
+dotnet ef migrations list --project DoubleLangue.Infrastructure --startup-project DoubleLangue.Api
 ```
 
 ---
@@ -79,9 +69,7 @@ dotnet ef migrations list \
 ## 🔍 Check the Generated SQL Script
 
 ```bash
-dotnet ef migrations script \
-  --project DoubleLangue.Infrastructure \
-  --startup-project DoubleLangue.Api
+dotnet ef migrations script --project DoubleLangue.Infrastructure --startup-project DoubleLangue.Api
 ```
 
 ---

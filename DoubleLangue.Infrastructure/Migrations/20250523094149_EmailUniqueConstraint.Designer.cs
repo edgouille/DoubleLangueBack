@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace DoubleLangue.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250522133329_InitialMigration")]
-    partial class InitialMigration
+    [Migration("20250523094149_EmailUniqueConstraint")]
+    partial class EmailUniqueConstraint
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,7 +25,7 @@ namespace DoubleLangue.Infrastructure.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("DoubleLangue.Domain.User", b =>
+            modelBuilder.Entity("DoubleLangue.Domain.Models.User", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -42,9 +42,8 @@ namespace DoubleLangue.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("Role")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<int>("Role")
+                        .HasColumnType("integer");
 
                     b.Property<string>("UserName")
                         .IsRequired()
@@ -53,17 +52,6 @@ namespace DoubleLangue.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("00000000-0000-0000-0000-000000000001"),
-                            CreatedAt = new DateTime(2025, 5, 22, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Email = "edgar@andre.com",
-                            Password = "123",
-                            Role = "Admin",
-                            UserName = "edgarAdmin"
-                        });
                 });
 #pragma warning restore 612, 618
         }

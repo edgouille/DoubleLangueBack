@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "K59dRaSBr8c=",
+  "dgSpecHash": "+VGgVv/8UNw=",
   "success": true,
   "projectFilePath": "C:\\Users\\edand\\Desktop\\cours\\B3\\Projet File Rouge\\DoubleLangueBack\\DoubleLangue.Api\\DoubleLangue.Api.csproj",
   "expectedPackageFiles": [
@@ -105,8 +105,10 @@
     {
       "code": "NU1701",
       "level": "Warning",
-      "warningLevel": 1,
       "message": "Le package 'Microsoft.Web.Infrastructure 1.0.0' a été restauré en utilisant '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' au lieu du framework cible du projet 'net9.0'. Ce package n'est peut-être pas totalement compatible avec votre projet.",
+      "projectPath": "C:\\Users\\edand\\Desktop\\cours\\B3\\Projet File Rouge\\DoubleLangueBack\\DoubleLangue.Api\\DoubleLangue.Api.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\edand\\Desktop\\cours\\B3\\Projet File Rouge\\DoubleLangueBack\\DoubleLangue.Api\\DoubleLangue.Api.csproj",
       "libraryId": "Microsoft.Web.Infrastructure",
       "targetGraphs": [
         "net9.0"
@@ -115,8 +117,10 @@
     {
       "code": "NU1701",
       "level": "Warning",
-      "warningLevel": 1,
       "message": "Le package 'Swagger.Net 0.5.4' a été restauré en utilisant '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' au lieu du framework cible du projet 'net9.0'. Ce package n'est peut-être pas totalement compatible avec votre projet.",
+      "projectPath": "C:\\Users\\edand\\Desktop\\cours\\B3\\Projet File Rouge\\DoubleLangueBack\\DoubleLangue.Api\\DoubleLangue.Api.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\edand\\Desktop\\cours\\B3\\Projet File Rouge\\DoubleLangueBack\\DoubleLangue.Api\\DoubleLangue.Api.csproj",
       "libraryId": "Swagger.Net",
       "targetGraphs": [
         "net9.0"
@@ -125,8 +129,10 @@
     {
       "code": "NU1701",
       "level": "Warning",
-      "warningLevel": 1,
       "message": "Le package 'WebActivator 1.5.1' a été restauré en utilisant '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' au lieu du framework cible du projet 'net9.0'. Ce package n'est peut-être pas totalement compatible avec votre projet.",
+      "projectPath": "C:\\Users\\edand\\Desktop\\cours\\B3\\Projet File Rouge\\DoubleLangueBack\\DoubleLangue.Api\\DoubleLangue.Api.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\edand\\Desktop\\cours\\B3\\Projet File Rouge\\DoubleLangueBack\\DoubleLangue.Api\\DoubleLangue.Api.csproj",
       "libraryId": "WebActivator",
       "targetGraphs": [
         "net9.0"

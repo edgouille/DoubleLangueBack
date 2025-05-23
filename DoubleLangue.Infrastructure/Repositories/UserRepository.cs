@@ -1,4 +1,4 @@
-﻿using DoubleLangue.Domain;
+﻿using DoubleLangue.Domain.Models;
 using DoubleLangue.Infrastructure.Interface.Repositories;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,13 +11,6 @@ public class UserRepository : IUserRepository
     public UserRepository(AppDbContext context)
     {
         _context = context;
-    }
-
-    public async Task<User> CreateUserAsync(User user)
-    {
-        _context.Users.Add(user);
-        await _context.SaveChangesAsync();
-        return user;
     }
 
     public async Task<User?> GetByIdAsync(Guid id)
@@ -44,22 +37,29 @@ public class UserRepository : IUserRepository
         }
     }
 
-    //public async Task AddAsync(User user)
-    //{
-    //    try
-    //    {
-    //        _context.Users.Add(user);
-    //        await _context.SaveChangesAsync();
-    //    }
-    //    catch (DbUpdateException ex) when (ex.InnerException != null && ex.InnerException.Message.Contains("duplicate"))
-    //    {
-    //        throw new InvalidOperationException("L'utilisateur existe déjà.", ex);
-    //    }
-    //    catch (Exception ex)
-    //    {
-    //        throw new Exception("Erreur lors de l'ajout de l'utilisateur.", ex);
-    //    }
-    //}
+    public async Task<User?> GetUserByEmailAsync(string email)
+    {
+        return await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
+    }
+
+
+    public async Task<User> AddAsync(User user)
+    {
+        try
+        {
+            _context.Users.Add(user);
+            await _context.SaveChangesAsync();
+            return user;
+        }
+        catch (DbUpdateException ex) when (ex.InnerException != null && ex.InnerException.Message.Contains("could not connect") || ex.Message.Contains("A network-related or instance-specific error"))
+        {
+            throw new InvalidOperationException("La base de données n'est pas disponible ou la connexion a échoué.", ex);
+        }
+        catch (Exception ex)
+        {
+            throw new Exception("Erreur lors de l'ajout de l'utilisateur.", ex);
+        }
+    }
 
     public async Task UpdateAsync(User user)
     {

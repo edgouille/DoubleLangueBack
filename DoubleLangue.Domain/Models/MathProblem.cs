@@ -1,4 +1,4 @@
-﻿namespace DoubleLangue.Domain;
+﻿namespace DoubleLangue.Domain.Models;
 
 public class MathProblem
 {
