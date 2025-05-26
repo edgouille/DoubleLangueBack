@@ -19,7 +19,7 @@ public class UserController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> CreateUser(UserDto request)
     {
-        var user = new User();
+        User user;
         try
         {
             user = await _userService.CreateAsync(request);

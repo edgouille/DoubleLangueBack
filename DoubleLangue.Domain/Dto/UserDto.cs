@@ -13,5 +13,10 @@ public class UserDto
     public string UserName { get; set; } 
     public string Email { get; set; } // unique
     public UserRoleEnum Role { get; set; } // user, admin
-    public string Password { get; set; }// hashed
+    public string Password { get; set; }//
+                                        
+
+
+
+
 }

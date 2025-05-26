@@ -23,13 +23,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docker", "Docker", "{02EA68
 		docker-compose.yml = docker-compose.yml
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{4C7E9CB3-A1A9-4F7E-96FE-377A2352134E}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Script", "Script", "{31895F2D-D6A3-443F-BE00-E4F975970138}"
-	ProjectSection(SolutionItems) = preProject
-		User.sql = User.sql
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,7 +54,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{31895F2D-D6A3-443F-BE00-E4F975970138} = {4C7E9CB3-A1A9-4F7E-96FE-377A2352134E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0EB0E78C-87CA-407A-A6DE-10BA9FBBFD74}
