@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using DoubleLangue.Domain.Dto;
 using DoubleLangue.Services.Interfaces;
+using DoubleLangue.Domain.Models;
 
 namespace DoubleLangue.Api.Controllers;
 
@@ -18,17 +19,17 @@ public class UserController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> CreateUser(UserDto request)
     {
+        var user = new User();
         try
         {
-            var user = await _userService.CreateAsync(request);
-            // Création de l'URI pour la ressource nouvellement créée
-            return CreatedAtAction(nameof(GetUserById), new { id = user.Id }, user);
+            user = await _userService.CreateAsync(request);
         }
         catch (Exception e)
         {
             Console.WriteLine(e);
             throw;
         }
+        return CreatedAtAction(nameof(GetUserById), new { id = user.Id }, user);
     }
 
     [HttpGet("{id}")]
@@ -50,7 +51,7 @@ public class UserController : ControllerBase
     }
 
     [HttpDelete("{id}")]
-    public IActionResult DeleteUser(int id)
+    public IActionResult DeleteUser(int id, string token)
     {
         // TODO: Ajouter la logique de suppression d'un utilisateur
         return NoContent();

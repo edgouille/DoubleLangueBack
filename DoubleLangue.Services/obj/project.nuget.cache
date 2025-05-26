@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "w4Lvd8D1Ikc=",
+  "dgSpecHash": "HNXPpPUFE8U=",
   "success": true,
-  "projectFilePath": "C:\\Users\\edand\\Desktop\\cours\\B3\\Projet File Rouge\\DoubleLangueBack\\DoubleLangue.Services\\DoubleLangue.Services.csproj",
+  "projectFilePath": "C:\\Users\\edand\\Desktop\\Projet Perso\\DoubleLangue\\DoubleLangueBack\\DoubleLangue.Services\\DoubleLangue.Services.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\edand\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\edand\\.nuget\\packages\\microsoft.entityframeworkcore\\9.0.5\\microsoft.entityframeworkcore.9.0.5.nupkg.sha512",

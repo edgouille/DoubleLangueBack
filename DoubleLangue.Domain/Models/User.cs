@@ -12,9 +12,13 @@ public class User
     [Required, EmailAddress]
     public string Email { get; init; }
     [Required]
-    public string Password { get; init; }
+    public string Password { get; init; } // hashed password
     [Required]
     public UserRoleEnum Role { get; init; }
     [Required]
     public DateTime CreatedAt { get; init; }
+
+    //todo ...
+
+
 }

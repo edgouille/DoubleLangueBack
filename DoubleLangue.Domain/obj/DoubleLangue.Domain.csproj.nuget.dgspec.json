@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\edand\\Desktop\\cours\\B3\\Projet File Rouge\\DoubleLangueBack\\DoubleLangue.Domain\\DoubleLangue.Domain.csproj": {}
+    "C:\\Users\\edand\\Desktop\\Projet Perso\\DoubleLangue\\DoubleLangueBack\\DoubleLangue.Domain\\DoubleLangue.Domain.csproj": {}
   },
   "projects": {
-    "C:\\Users\\edand\\Desktop\\cours\\B3\\Projet File Rouge\\DoubleLangueBack\\DoubleLangue.Domain\\DoubleLangue.Domain.csproj": {
+    "C:\\Users\\edand\\Desktop\\Projet Perso\\DoubleLangue\\DoubleLangueBack\\DoubleLangue.Domain\\DoubleLangue.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\edand\\Desktop\\cours\\B3\\Projet File Rouge\\DoubleLangueBack\\DoubleLangue.Domain\\DoubleLangue.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\edand\\Desktop\\Projet Perso\\DoubleLangue\\DoubleLangueBack\\DoubleLangue.Domain\\DoubleLangue.Domain.csproj",
         "projectName": "DoubleLangue.Domain",
-        "projectPath": "C:\\Users\\edand\\Desktop\\cours\\B3\\Projet File Rouge\\DoubleLangueBack\\DoubleLangue.Domain\\DoubleLangue.Domain.csproj",
+        "projectPath": "C:\\Users\\edand\\Desktop\\Projet Perso\\DoubleLangue\\DoubleLangueBack\\DoubleLangue.Domain\\DoubleLangue.Domain.csproj",
         "packagesPath": "C:\\Users\\edand\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\edand\\Desktop\\cours\\B3\\Projet File Rouge\\DoubleLangueBack\\DoubleLangue.Domain\\obj\\",
+        "outputPath": "C:\\Users\\edand\\Desktop\\Projet Perso\\DoubleLangue\\DoubleLangueBack\\DoubleLangue.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -26,7 +26,10 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://pkgs.dev.azure.com/alpicloud/IGE-XAO-rnd-shmplm/_packaging/CommonFeed/nuget/v3/index.json": {},
+          "https://pkgs.dev.azure.com/alpicloud/IGE-XAO-rnd-shmplm/_packaging/PlmFeed/nuget/v3/index.json": {},
+          "https://pkgs.dev.azure.com/alpicloud/IGE-XAO-rnd-shmplm/_packaging/ShmFeed/nuget/v3/index.json": {}
         },
         "frameworks": {
           "net9.0": {
@@ -44,7 +47,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.300"
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net9.0": {
@@ -65,7 +68,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

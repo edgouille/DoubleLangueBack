@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "eWfgMLQlgwA=",
+  "dgSpecHash": "pCqzOSTZlPI=",
   "success": true,
-  "projectFilePath": "C:\\Users\\edand\\Desktop\\cours\\B3\\Projet File Rouge\\DoubleLangueBack\\DoubleLangue.test\\DoubleLangue.test.csproj",
+  "projectFilePath": "C:\\Users\\edand\\Desktop\\Projet Perso\\DoubleLangue\\DoubleLangueBack\\DoubleLangue.test\\DoubleLangue.test.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\edand\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\edand\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",

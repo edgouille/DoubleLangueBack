@@ -21,3 +21,15 @@ C:\Users\edand\Desktop\cours\B3\Projet File Rouge\DoubleLangueBack\DoubleLangue.
 C:\Users\edand\Desktop\cours\B3\Projet File Rouge\DoubleLangueBack\DoubleLangue.Domain\obj\Debug\net9.0\refint\DoubleLangue.Domain.dll
 C:\Users\edand\Desktop\cours\B3\Projet File Rouge\DoubleLangueBack\DoubleLangue.Domain\obj\Debug\net9.0\DoubleLangue.Domain.pdb
 C:\Users\edand\Desktop\cours\B3\Projet File Rouge\DoubleLangueBack\DoubleLangue.Domain\obj\Debug\net9.0\ref\DoubleLangue.Domain.dll
+C:\Users\edand\Desktop\Projet Perso\DoubleLangue\DoubleLangueBack\DoubleLangue.Domain\bin\Debug\net9.0\DoubleLangue.Domain.deps.json
+C:\Users\edand\Desktop\Projet Perso\DoubleLangue\DoubleLangueBack\DoubleLangue.Domain\bin\Debug\net9.0\DoubleLangue.Domain.dll
+C:\Users\edand\Desktop\Projet Perso\DoubleLangue\DoubleLangueBack\DoubleLangue.Domain\bin\Debug\net9.0\DoubleLangue.Domain.pdb
+C:\Users\edand\Desktop\Projet Perso\DoubleLangue\DoubleLangueBack\DoubleLangue.Domain\obj\Debug\net9.0\DoubleLangue.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\edand\Desktop\Projet Perso\DoubleLangue\DoubleLangueBack\DoubleLangue.Domain\obj\Debug\net9.0\DoubleLangue.Domain.AssemblyInfoInputs.cache
+C:\Users\edand\Desktop\Projet Perso\DoubleLangue\DoubleLangueBack\DoubleLangue.Domain\obj\Debug\net9.0\DoubleLangue.Domain.AssemblyInfo.cs
+C:\Users\edand\Desktop\Projet Perso\DoubleLangue\DoubleLangueBack\DoubleLangue.Domain\obj\Debug\net9.0\DoubleLangue.Domain.csproj.CoreCompileInputs.cache
+C:\Users\edand\Desktop\Projet Perso\DoubleLangue\DoubleLangueBack\DoubleLangue.Domain\obj\Debug\net9.0\DoubleLangue.Domain.sourcelink.json
+C:\Users\edand\Desktop\Projet Perso\DoubleLangue\DoubleLangueBack\DoubleLangue.Domain\obj\Debug\net9.0\DoubleLangue.Domain.dll
+C:\Users\edand\Desktop\Projet Perso\DoubleLangue\DoubleLangueBack\DoubleLangue.Domain\obj\Debug\net9.0\refint\DoubleLangue.Domain.dll
+C:\Users\edand\Desktop\Projet Perso\DoubleLangue\DoubleLangueBack\DoubleLangue.Domain\obj\Debug\net9.0\DoubleLangue.Domain.pdb
+C:\Users\edand\Desktop\Projet Perso\DoubleLangue\DoubleLangueBack\DoubleLangue.Domain\obj\Debug\net9.0\ref\DoubleLangue.Domain.dll

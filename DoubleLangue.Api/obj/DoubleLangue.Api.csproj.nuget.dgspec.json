@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\edand\\Desktop\\cours\\B3\\Projet File Rouge\\DoubleLangueBack\\DoubleLangue.Api\\DoubleLangue.Api.csproj": {}
+    "C:\\Users\\edand\\Desktop\\Projet Perso\\DoubleLangue\\DoubleLangueBack\\DoubleLangue.Api\\DoubleLangue.Api.csproj": {}
   },
   "projects": {
-    "C:\\Users\\edand\\Desktop\\cours\\B3\\Projet File Rouge\\DoubleLangueBack\\DoubleLangue.Api\\DoubleLangue.Api.csproj": {
+    "C:\\Users\\edand\\Desktop\\Projet Perso\\DoubleLangue\\DoubleLangueBack\\DoubleLangue.Api\\DoubleLangue.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\edand\\Desktop\\cours\\B3\\Projet File Rouge\\DoubleLangueBack\\DoubleLangue.Api\\DoubleLangue.Api.csproj",
+        "projectUniqueName": "C:\\Users\\edand\\Desktop\\Projet Perso\\DoubleLangue\\DoubleLangueBack\\DoubleLangue.Api\\DoubleLangue.Api.csproj",
         "projectName": "DoubleLangue.Api",
-        "projectPath": "C:\\Users\\edand\\Desktop\\cours\\B3\\Projet File Rouge\\DoubleLangueBack\\DoubleLangue.Api\\DoubleLangue.Api.csproj",
+        "projectPath": "C:\\Users\\edand\\Desktop\\Projet Perso\\DoubleLangue\\DoubleLangueBack\\DoubleLangue.Api\\DoubleLangue.Api.csproj",
         "packagesPath": "C:\\Users\\edand\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\edand\\Desktop\\cours\\B3\\Projet File Rouge\\DoubleLangueBack\\DoubleLangue.Api\\obj\\",
+        "outputPath": "C:\\Users\\edand\\Desktop\\Projet Perso\\DoubleLangue\\DoubleLangueBack\\DoubleLangue.Api\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -26,20 +26,23 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://pkgs.dev.azure.com/alpicloud/IGE-XAO-rnd-shmplm/_packaging/CommonFeed/nuget/v3/index.json": {},
+          "https://pkgs.dev.azure.com/alpicloud/IGE-XAO-rnd-shmplm/_packaging/PlmFeed/nuget/v3/index.json": {},
+          "https://pkgs.dev.azure.com/alpicloud/IGE-XAO-rnd-shmplm/_packaging/ShmFeed/nuget/v3/index.json": {}
         },
         "frameworks": {
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "C:\\Users\\edand\\Desktop\\cours\\B3\\Projet File Rouge\\DoubleLangueBack\\DoubleLangue.Domain\\DoubleLangue.Domain.csproj": {
-                "projectPath": "C:\\Users\\edand\\Desktop\\cours\\B3\\Projet File Rouge\\DoubleLangueBack\\DoubleLangue.Domain\\DoubleLangue.Domain.csproj"
+              "C:\\Users\\edand\\Desktop\\Projet Perso\\DoubleLangue\\DoubleLangueBack\\DoubleLangue.Domain\\DoubleLangue.Domain.csproj": {
+                "projectPath": "C:\\Users\\edand\\Desktop\\Projet Perso\\DoubleLangue\\DoubleLangueBack\\DoubleLangue.Domain\\DoubleLangue.Domain.csproj"
               },
-              "C:\\Users\\edand\\Desktop\\cours\\B3\\Projet File Rouge\\DoubleLangueBack\\DoubleLangue.Infrastructure\\DoubleLangue.Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\edand\\Desktop\\cours\\B3\\Projet File Rouge\\DoubleLangueBack\\DoubleLangue.Infrastructure\\DoubleLangue.Infrastructure.csproj"
+              "C:\\Users\\edand\\Desktop\\Projet Perso\\DoubleLangue\\DoubleLangueBack\\DoubleLangue.Infrastructure\\DoubleLangue.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\edand\\Desktop\\Projet Perso\\DoubleLangue\\DoubleLangueBack\\DoubleLangue.Infrastructure\\DoubleLangue.Infrastructure.csproj"
               },
-              "C:\\Users\\edand\\Desktop\\cours\\B3\\Projet File Rouge\\DoubleLangueBack\\DoubleLangue.Services\\DoubleLangue.Services.csproj": {
-                "projectPath": "C:\\Users\\edand\\Desktop\\cours\\B3\\Projet File Rouge\\DoubleLangueBack\\DoubleLangue.Services\\DoubleLangue.Services.csproj"
+              "C:\\Users\\edand\\Desktop\\Projet Perso\\DoubleLangue\\DoubleLangueBack\\DoubleLangue.Services\\DoubleLangue.Services.csproj": {
+                "projectPath": "C:\\Users\\edand\\Desktop\\Projet Perso\\DoubleLangue\\DoubleLangueBack\\DoubleLangue.Services\\DoubleLangue.Services.csproj"
               }
             }
           }
@@ -54,7 +57,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.300"
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net9.0": {
@@ -114,18 +117,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\edand\\Desktop\\cours\\B3\\Projet File Rouge\\DoubleLangueBack\\DoubleLangue.Domain\\DoubleLangue.Domain.csproj": {
+    "C:\\Users\\edand\\Desktop\\Projet Perso\\DoubleLangue\\DoubleLangueBack\\DoubleLangue.Domain\\DoubleLangue.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\edand\\Desktop\\cours\\B3\\Projet File Rouge\\DoubleLangueBack\\DoubleLangue.Domain\\DoubleLangue.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\edand\\Desktop\\Projet Perso\\DoubleLangue\\DoubleLangueBack\\DoubleLangue.Domain\\DoubleLangue.Domain.csproj",
         "projectName": "DoubleLangue.Domain",
-        "projectPath": "C:\\Users\\edand\\Desktop\\cours\\B3\\Projet File Rouge\\DoubleLangueBack\\DoubleLangue.Domain\\DoubleLangue.Domain.csproj",
+        "projectPath": "C:\\Users\\edand\\Desktop\\Projet Perso\\DoubleLangue\\DoubleLangueBack\\DoubleLangue.Domain\\DoubleLangue.Domain.csproj",
         "packagesPath": "C:\\Users\\edand\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\edand\\Desktop\\cours\\B3\\Projet File Rouge\\DoubleLangueBack\\DoubleLangue.Domain\\obj\\",
+        "outputPath": "C:\\Users\\edand\\Desktop\\Projet Perso\\DoubleLangue\\DoubleLangueBack\\DoubleLangue.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -140,7 +143,10 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://pkgs.dev.azure.com/alpicloud/IGE-XAO-rnd-shmplm/_packaging/CommonFeed/nuget/v3/index.json": {},
+          "https://pkgs.dev.azure.com/alpicloud/IGE-XAO-rnd-shmplm/_packaging/PlmFeed/nuget/v3/index.json": {},
+          "https://pkgs.dev.azure.com/alpicloud/IGE-XAO-rnd-shmplm/_packaging/ShmFeed/nuget/v3/index.json": {}
         },
         "frameworks": {
           "net9.0": {
@@ -158,7 +164,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.300"
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net9.0": {
@@ -179,18 +185,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\edand\\Desktop\\cours\\B3\\Projet File Rouge\\DoubleLangueBack\\DoubleLangue.Infrastructure\\DoubleLangue.Infrastructure.csproj": {
+    "C:\\Users\\edand\\Desktop\\Projet Perso\\DoubleLangue\\DoubleLangueBack\\DoubleLangue.Infrastructure\\DoubleLangue.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\edand\\Desktop\\cours\\B3\\Projet File Rouge\\DoubleLangueBack\\DoubleLangue.Infrastructure\\DoubleLangue.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\edand\\Desktop\\Projet Perso\\DoubleLangue\\DoubleLangueBack\\DoubleLangue.Infrastructure\\DoubleLangue.Infrastructure.csproj",
         "projectName": "DoubleLangue.Infrastructure",
-        "projectPath": "C:\\Users\\edand\\Desktop\\cours\\B3\\Projet File Rouge\\DoubleLangueBack\\DoubleLangue.Infrastructure\\DoubleLangue.Infrastructure.csproj",
+        "projectPath": "C:\\Users\\edand\\Desktop\\Projet Perso\\DoubleLangue\\DoubleLangueBack\\DoubleLangue.Infrastructure\\DoubleLangue.Infrastructure.csproj",
         "packagesPath": "C:\\Users\\edand\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\edand\\Desktop\\cours\\B3\\Projet File Rouge\\DoubleLangueBack\\DoubleLangue.Infrastructure\\obj\\",
+        "outputPath": "C:\\Users\\edand\\Desktop\\Projet Perso\\DoubleLangue\\DoubleLangueBack\\DoubleLangue.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -205,14 +211,17 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://pkgs.dev.azure.com/alpicloud/IGE-XAO-rnd-shmplm/_packaging/CommonFeed/nuget/v3/index.json": {},
+          "https://pkgs.dev.azure.com/alpicloud/IGE-XAO-rnd-shmplm/_packaging/PlmFeed/nuget/v3/index.json": {},
+          "https://pkgs.dev.azure.com/alpicloud/IGE-XAO-rnd-shmplm/_packaging/ShmFeed/nuget/v3/index.json": {}
         },
         "frameworks": {
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "C:\\Users\\edand\\Desktop\\cours\\B3\\Projet File Rouge\\DoubleLangueBack\\DoubleLangue.Domain\\DoubleLangue.Domain.csproj": {
-                "projectPath": "C:\\Users\\edand\\Desktop\\cours\\B3\\Projet File Rouge\\DoubleLangueBack\\DoubleLangue.Domain\\DoubleLangue.Domain.csproj"
+              "C:\\Users\\edand\\Desktop\\Projet Perso\\DoubleLangue\\DoubleLangueBack\\DoubleLangue.Domain\\DoubleLangue.Domain.csproj": {
+                "projectPath": "C:\\Users\\edand\\Desktop\\Projet Perso\\DoubleLangue\\DoubleLangueBack\\DoubleLangue.Domain\\DoubleLangue.Domain.csproj"
               }
             }
           }
@@ -227,7 +236,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.300"
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net9.0": {
@@ -266,18 +275,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\edand\\Desktop\\cours\\B3\\Projet File Rouge\\DoubleLangueBack\\DoubleLangue.Services\\DoubleLangue.Services.csproj": {
+    "C:\\Users\\edand\\Desktop\\Projet Perso\\DoubleLangue\\DoubleLangueBack\\DoubleLangue.Services\\DoubleLangue.Services.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\edand\\Desktop\\cours\\B3\\Projet File Rouge\\DoubleLangueBack\\DoubleLangue.Services\\DoubleLangue.Services.csproj",
+        "projectUniqueName": "C:\\Users\\edand\\Desktop\\Projet Perso\\DoubleLangue\\DoubleLangueBack\\DoubleLangue.Services\\DoubleLangue.Services.csproj",
         "projectName": "DoubleLangue.Services",
-        "projectPath": "C:\\Users\\edand\\Desktop\\cours\\B3\\Projet File Rouge\\DoubleLangueBack\\DoubleLangue.Services\\DoubleLangue.Services.csproj",
+        "projectPath": "C:\\Users\\edand\\Desktop\\Projet Perso\\DoubleLangue\\DoubleLangueBack\\DoubleLangue.Services\\DoubleLangue.Services.csproj",
         "packagesPath": "C:\\Users\\edand\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\edand\\Desktop\\cours\\B3\\Projet File Rouge\\DoubleLangueBack\\DoubleLangue.Services\\obj\\",
+        "outputPath": "C:\\Users\\edand\\Desktop\\Projet Perso\\DoubleLangue\\DoubleLangueBack\\DoubleLangue.Services\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -292,17 +301,20 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://pkgs.dev.azure.com/alpicloud/IGE-XAO-rnd-shmplm/_packaging/CommonFeed/nuget/v3/index.json": {},
+          "https://pkgs.dev.azure.com/alpicloud/IGE-XAO-rnd-shmplm/_packaging/PlmFeed/nuget/v3/index.json": {},
+          "https://pkgs.dev.azure.com/alpicloud/IGE-XAO-rnd-shmplm/_packaging/ShmFeed/nuget/v3/index.json": {}
         },
         "frameworks": {
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "C:\\Users\\edand\\Desktop\\cours\\B3\\Projet File Rouge\\DoubleLangueBack\\DoubleLangue.Domain\\DoubleLangue.Domain.csproj": {
-                "projectPath": "C:\\Users\\edand\\Desktop\\cours\\B3\\Projet File Rouge\\DoubleLangueBack\\DoubleLangue.Domain\\DoubleLangue.Domain.csproj"
+              "C:\\Users\\edand\\Desktop\\Projet Perso\\DoubleLangue\\DoubleLangueBack\\DoubleLangue.Domain\\DoubleLangue.Domain.csproj": {
+                "projectPath": "C:\\Users\\edand\\Desktop\\Projet Perso\\DoubleLangue\\DoubleLangueBack\\DoubleLangue.Domain\\DoubleLangue.Domain.csproj"
               },
-              "C:\\Users\\edand\\Desktop\\cours\\B3\\Projet File Rouge\\DoubleLangueBack\\DoubleLangue.Infrastructure\\DoubleLangue.Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\edand\\Desktop\\cours\\B3\\Projet File Rouge\\DoubleLangueBack\\DoubleLangue.Infrastructure\\DoubleLangue.Infrastructure.csproj"
+              "C:\\Users\\edand\\Desktop\\Projet Perso\\DoubleLangue\\DoubleLangueBack\\DoubleLangue.Infrastructure\\DoubleLangue.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\edand\\Desktop\\Projet Perso\\DoubleLangue\\DoubleLangueBack\\DoubleLangue.Infrastructure\\DoubleLangue.Infrastructure.csproj"
               }
             }
           }
@@ -317,7 +329,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.300"
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net9.0": {
@@ -338,7 +350,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

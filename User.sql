@@ -1,8 +1,0 @@
-CREATE TABLE public."User" (
-    "Id" UUID PRIMARY KEY NOT NULL,
-    "UserName" VARCHAR(100) NOT NULL,
-    "Email" VARCHAR(255) NOT NULL,
-    "Password" VARCHAR(255) NOT NULL,
-    "Role" VARCHAR(50) NOT NULL,
-    "CreatedAt" TIMESTAMP NOT NULL
-);
