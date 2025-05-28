@@ -18,33 +18,11 @@ public class UserService : IUserService
         _passwordHasher = passwordHasher;
     }
 
-    public async Task<List<User>> GetAllAsync()
+    public async Task<UserResponseDto> CreateAsync(UserCreateDto user)
     {
-        return new List<User>();
-    }
-
-    public async Task<User?> GetByIdAsync(Guid id)
-    {
-        return await _userRepository.GetByIdAsync(id);
-    }
-
-    public async Task<User> CreateAsync(UserDto user)
-    {
-        if (user == null)
-            throw new ArgumentNullException(nameof(user));
-        if (string.IsNullOrEmpty(user.UserName))
-            throw new ArgumentException("UserName ne peut pas être null ou vide.", nameof(user.UserName));
-        if (string.IsNullOrEmpty(user.Email))
-            throw new ArgumentException("Email ne peut pas être null ou vide.", nameof(user.Email));
-        if (!Enum.IsDefined(typeof(UserRoleEnum), user.Role))
-            throw new ArgumentException("Role n'est pas valide.", nameof(user.Role));
-        if (string.IsNullOrEmpty(user.Password))
-            throw new ArgumentException("Password ne peut pas être null ou vide.", nameof(user.Password));
-
         var existingUser = await _userRepository.GetUserByEmailAsync(user.Email);
         if (existingUser != null)
         {
-            // Tu peux lancer une exception ou retourner null selon ta gestion d'erreurs
             throw new Exception("Cet email est déjà utilisé.");
         }
 
@@ -61,18 +39,65 @@ public class UserService : IUserService
         };
 
         await _userRepository.AddAsync(newUser);
-        return newUser;
+
+        var userResponse = await _userRepository.GetUserByEmailAsync(user.Email);
+
+        if (userResponse == null)
+        {
+            throw new Exception("Erreur lors de la création");
+        }
+
+        return new UserResponseDto
+        {
+            Id = userResponse.Id.ToString(),
+            UserName = userResponse.UserName,
+            Email = userResponse.Email,
+            Role = userResponse.Role
+        };
     }
 
-    public async Task UpdateAsync(UserDto user)
+    public async Task<List<User>> GetAllAsync()
     {
-        return;
+        try
+        {
+            return await _userRepository.GetAllAsync();
+        }
+        catch (Exception ex)
+        {
+            // Log the exception or handle it as needed
+            throw new Exception("Erreur lors de la récupération de tous les utilisateurs.", ex);
+        }
     }
+    //TODO: have to be different beet ween user and admin
+
+    public async Task<User?> GetByIdAsync(Guid id)
+    {
+        try
+        {
+            return await _userRepository.GetByIdAsync(id);
+        }
+        catch (Exception ex)
+        {
+            throw new Exception($"Erreur lors de la récupération de l'utilisateurs ayant l'id = {id.ToString()}.", ex);
+        }
+    }
+    //TODO: have to be different beet ween user and admin
+
+    //public async Task<User> UpdateAsync(UserDto user)
+    //{
+
+
+    //}
 
     public async Task DeleteAsync(Guid id)
     {
-        return;
+        try
+        {
+            await _userRepository.DeleteAsync(id);
+        }
+        catch (Exception ex)
+        {
+            throw new Exception("Erreur lors de la suppression", ex);
+        }
     }
-
-
 }

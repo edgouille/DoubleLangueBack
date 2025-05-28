@@ -2,6 +2,7 @@
 using DoubleLangue.Domain.Dto;
 using DoubleLangue.Services.Interfaces;
 using DoubleLangue.Domain.Models;
+using Microsoft.IdentityModel.Tokens;
 
 namespace DoubleLangue.Api.Controllers;
 
@@ -17,9 +18,9 @@ public class UserController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> CreateUser(UserDto request)
+    public async Task<IActionResult> CreateUser(UserCreateDto request)
     {
-        User user;
+        UserResponseDto user;
         try
         {
             user = await _userService.CreateAsync(request);
@@ -32,35 +33,50 @@ public class UserController : ControllerBase
         return CreatedAtAction(nameof(GetUserById), new { id = user.Id }, user);
     }
 
+    [HttpGet]
+    public async Task<IActionResult> GetAllUsers()
+    {
+        List<User> listUser;
+        try
+        {
+            listUser = await _userService.GetAllAsync();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex);
+            throw;
+        }
+        return Ok(listUser);
+    }
+
     [HttpGet("{id}")]
     public async Task<IActionResult> GetUserById(string id)
     {
         if (!Guid.TryParse(id, out var guid))
             return BadRequest("Invalid GUID format.");
+        if (id.IsNullOrEmpty())
+            throw new ArgumentException("L'ID de l'utilisateur ne peut pas être un GUID vide.", nameof(id));
 
         var item = await _userService.GetByIdAsync(guid);
+
         if (item == null) return NotFound();
         return Ok(item);
     }
 
-    [HttpPut("{id}")]
-    public IActionResult UpdateUser(int id, [FromBody] UserDto userDto)
-    {
-        // TODO: Ajouter la logique de mise à jour d'un utilisateur
-        return NoContent();
-    }
+    //[HttpPut("{id}")]
+    //public async Task<IActionResult> UpdateUser(int id, [FromBody] UserDto userDto)
+    //{
+
+
+    //    return NoContent();
+    //}
 
     [HttpDelete("{id}")]
-    public IActionResult DeleteUser(int id, string token)
+    public IActionResult DeleteUser(int id)
     {
         // TODO: Ajouter la logique de suppression d'un utilisateur
         return NoContent();
     }
 
-    [HttpGet]
-    public IActionResult GetAllUsers()
-    {
-        // TODO: Ajouter la logique de récupération de tous les utilisateurs
-        return Ok(/* liste des utilisateurs */);
-    }
+
 }
