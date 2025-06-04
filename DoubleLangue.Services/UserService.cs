@@ -83,11 +83,41 @@ public class UserService : IUserService
     }
     //TODO: have to be different beet ween user and admin
 
-    //public async Task<User> UpdateAsync(UserDto user)
-    //{
+    public async Task<UserResponseDto?> UpdateAsync(Guid id, UserUpdateDto user)
+    {
+        try
+        {
+            var existingUser = await _userRepository.GetByIdAsync(id);
+            if (existingUser is null)
+            {
+                return null;
+            }
 
+            var updatedUser = new User
+            {
+                Id = existingUser.Id,
+                UserName = user.UserName ?? existingUser.UserName,
+                Email = user.Email ?? existingUser.Email,
+                Password = user.Password != null ? _passwordHasher.Hash(user.Password) : existingUser.Password,
+                Role = user.Role ?? existingUser.Role,
+                CreatedAt = existingUser.CreatedAt
+            };
 
-    //}
+            var result = await _userRepository.UpdateAsync(updatedUser);
+
+            return new UserResponseDto
+            {
+                Id = result!.Id.ToString(),
+                UserName = result.UserName,
+                Email = result.Email,
+                Role = result.Role
+            };
+        }
+        catch (Exception ex)
+        {
+            throw new Exception("Erreur lors de la mise à jour de l'utilisateur", ex);
+        }
+    }
 
     public async Task DeleteAsync(Guid id)
     {

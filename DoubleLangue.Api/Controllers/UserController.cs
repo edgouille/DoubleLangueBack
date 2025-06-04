@@ -20,33 +20,29 @@ public class UserController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> CreateUser(UserCreateDto request)
     {
-        UserResponseDto user;
         try
         {
-            user = await _userService.CreateAsync(request);
+            var user = await _userService.CreateAsync(request);
+            return CreatedAtAction(nameof(GetUserById), new { id = user.Id }, user);
         }
         catch (Exception e)
         {
-            Console.WriteLine(e);
-            throw;
+            return BadRequest(e.Message);
         }
-        return CreatedAtAction(nameof(GetUserById), new { id = user.Id }, user);
     }
 
     [HttpGet]
     public async Task<IActionResult> GetAllUsers()
     {
-        List<User> listUser;
         try
         {
-            listUser = await _userService.GetAllAsync();
+            var listUser = await _userService.GetAllAsync();
+            return Ok(listUser);
         }
         catch (Exception ex)
         {
-            Console.WriteLine(ex);
-            throw;
+            return BadRequest(ex.Message);
         }
-        return Ok(listUser);
     }
 
     [HttpGet("{id}")]
@@ -55,27 +51,53 @@ public class UserController : ControllerBase
         if (!Guid.TryParse(id, out var guid))
             return BadRequest("Invalid GUID format.");
         if (id.IsNullOrEmpty())
-            throw new ArgumentException("L'ID de l'utilisateur ne peut pas être un GUID vide.", nameof(id));
+            return BadRequest("L'ID de l'utilisateur ne peut pas être un GUID vide.");
 
-        var item = await _userService.GetByIdAsync(guid);
-
-        if (item == null) return NotFound();
-        return Ok(item);
+        try
+        {
+            var item = await _userService.GetByIdAsync(guid);
+            if (item == null) return NotFound();
+            return Ok(item);
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
     }
 
-    //[HttpPut("{id}")]
-    //public async Task<IActionResult> UpdateUser(int id, [FromBody] UserDto userDto)
-    //{
+    [HttpPut("{id}")]
+    public async Task<IActionResult> UpdateUser(string id, [FromBody] UserUpdateDto userDto)
+    {
+        if (!Guid.TryParse(id, out var guid))
+            return BadRequest("Invalid GUID format.");
 
-
-    //    return NoContent();
-    //}
+        try
+        {
+            var updated = await _userService.UpdateAsync(guid, userDto);
+            if (updated is null) return NotFound();
+            return Ok(updated);
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
+    }
 
     [HttpDelete("{id}")]
-    public IActionResult DeleteUser(int id)
+    public async Task<IActionResult> DeleteUser(string id)
     {
-        // TODO: Ajouter la logique de suppression d'un utilisateur
-        return NoContent();
+        if (!Guid.TryParse(id, out var guid))
+            return BadRequest("Invalid GUID format.");
+
+        try
+        {
+            await _userService.DeleteAsync(guid);
+            return NoContent();
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
     }
 
 
