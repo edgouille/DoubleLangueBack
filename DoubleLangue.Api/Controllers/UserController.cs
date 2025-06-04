@@ -1,12 +1,14 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using DoubleLangue.Domain.Dto;
 using DoubleLangue.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using DoubleLangue.Domain.Models;
 using Microsoft.IdentityModel.Tokens;
 
 namespace DoubleLangue.Api.Controllers;
 
 [ApiController]
+[Authorize]
 [Route("api/[controller]")]
 public class UserController : ControllerBase
 {
