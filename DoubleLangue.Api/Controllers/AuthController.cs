@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Authorization;
 using DoubleLangue.Domain.Dto;
 using DoubleLangue.Infrastructure.Interface.Repositories;
 using DoubleLangue.Infrastructure.Interface.Utils;
+using DoubleLangue.Services.Interfaces;
+using DoubleLangue.Domain.Enum;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -17,12 +19,14 @@ public class AuthController : ControllerBase
     private readonly IUserRepository _userRepository;
     private readonly IPasswordHasher _passwordHasher;
     private readonly IConfiguration _configuration;
+    private readonly IUserService _userService;
 
-    public AuthController(IUserRepository userRepository, IPasswordHasher passwordHasher, IConfiguration configuration)
+    public AuthController(IUserRepository userRepository, IPasswordHasher passwordHasher, IConfiguration configuration, IUserService userService)
     {
         _userRepository = userRepository;
         _passwordHasher = passwordHasher;
         _configuration = configuration;
+        _userService = userService;
     }
 
     [HttpPost("login")]
@@ -53,5 +57,28 @@ public class AuthController : ControllerBase
             signingCredentials: creds);
 
         return Ok(new { token = new JwtSecurityTokenHandler().WriteToken(token) });
+    }
+
+    [HttpPost("register")]
+    [AllowAnonymous]
+    public async Task<IActionResult> Register(UserRegisterDto request)
+    {
+        try
+        {
+            var createDto = new UserCreateDto
+            {
+                UserName = request.UserName,
+                Email = request.Email,
+                Password = request.Password,
+                Role = UserRoleEnum.User
+            };
+
+            var user = await _userService.CreateAsync(createDto);
+            return Ok(user);
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e.Message);
+        }
     }
 }
