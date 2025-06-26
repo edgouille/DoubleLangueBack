@@ -1,4 +1,4 @@
-﻿using DoubleLangue.Domain.Dto;
+﻿using DoubleLangue.Domain.Dto.User;
 using DoubleLangue.Domain.Models;
 
 namespace DoubleLangue.Services.Interfaces;

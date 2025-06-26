@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
-using DoubleLangue.Domain.Dto;
 using DoubleLangue.Infrastructure.Interface.Repositories;
 using DoubleLangue.Infrastructure.Interface.Utils;
 using DoubleLangue.Services.Interfaces;
@@ -9,6 +8,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using DoubleLangue.Domain.Dto.User;
 
 namespace DoubleLangue.Api.Controllers;
 

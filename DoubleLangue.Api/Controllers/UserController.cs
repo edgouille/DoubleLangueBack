@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using DoubleLangue.Domain.Dto;
 using DoubleLangue.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using DoubleLangue.Domain.Models;
 using Microsoft.IdentityModel.Tokens;
+using DoubleLangue.Domain.Dto.User;
 
 namespace DoubleLangue.Api.Controllers;
 
@@ -52,7 +52,7 @@ public class UserController : ControllerBase
     {
         if (!Guid.TryParse(id, out var guid))
             return BadRequest("Invalid GUID format.");
-        if (id.IsNullOrEmpty())
+        if (string.IsNullOrEmpty(id)) 
             return BadRequest("L'ID de l'utilisateur ne peut pas être un GUID vide.");
 
         try

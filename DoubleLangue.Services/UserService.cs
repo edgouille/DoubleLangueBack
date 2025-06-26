@@ -1,4 +1,4 @@
-﻿using DoubleLangue.Domain.Dto;
+﻿using DoubleLangue.Domain.Dto.User;
 using DoubleLangue.Domain.Enum;
 using DoubleLangue.Domain.Models;
 using DoubleLangue.Infrastructure.Interface.Repositories;

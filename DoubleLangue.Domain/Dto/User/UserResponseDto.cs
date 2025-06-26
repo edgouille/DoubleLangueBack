@@ -1,6 +1,6 @@
 ﻿using DoubleLangue.Domain.Enum;
 
-namespace DoubleLangue.Domain.Dto;
+namespace DoubleLangue.Domain.Dto.User;
 
 public class UserResponseDto
 {
