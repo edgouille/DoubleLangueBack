@@ -392,3 +392,6 @@ FodyWeavers.xsd
 ## Others
 *.cache
 *.log
+
+## migrations
+/DoubleLangue.Infrastructure/Migrations
