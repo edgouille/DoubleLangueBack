@@ -35,7 +35,8 @@ public class UserService : IUserService
             Email = user.Email,
             Password = hashedPassword,
             Role = user.Role,
-            CreatedAt = DateTime.UtcNow
+            CreatedAt = DateTime.UtcNow,
+            LastActivity = DateTime.UtcNow
         };
 
         await _userRepository.AddAsync(newUser);
@@ -52,7 +53,8 @@ public class UserService : IUserService
             Id = userResponse.Id.ToString(),
             UserName = userResponse.UserName,
             Email = userResponse.Email,
-            Role = userResponse.Role
+            Role = userResponse.Role,
+            LastActivity = userResponse.LastActivity
         };
     }
 
@@ -74,7 +76,13 @@ public class UserService : IUserService
     {
         try
         {
-            return await _userRepository.GetByIdAsync(id);
+            var user = await _userRepository.GetByIdAsync(id);
+            if (user != null)
+            {
+                user.LastActivity = DateTime.UtcNow;
+                await _userRepository.UpdateAsync(user);
+            }
+            return user;
         }
         catch (Exception ex)
         {
@@ -100,7 +108,8 @@ public class UserService : IUserService
                 Email = user.Email ?? existingUser.Email,
                 Password = user.Password != null ? _passwordHasher.Hash(user.Password) : existingUser.Password,
                 Role = user.Role ?? existingUser.Role,
-                CreatedAt = existingUser.CreatedAt
+                CreatedAt = existingUser.CreatedAt,
+                LastActivity = DateTime.UtcNow
             };
 
             var result = await _userRepository.UpdateAsync(updatedUser);
@@ -110,7 +119,8 @@ public class UserService : IUserService
                 Id = result!.Id.ToString(),
                 UserName = result.UserName,
                 Email = result.Email,
-                Role = result.Role
+                Role = result.Role,
+                LastActivity = result.LastActivity
             };
         }
         catch (Exception ex)

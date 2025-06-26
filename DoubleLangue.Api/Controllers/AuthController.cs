@@ -39,6 +39,9 @@ public class AuthController : ControllerBase
             return Unauthorized();
         }
 
+        user.LastActivity = DateTime.UtcNow;
+        await _userRepository.UpdateAsync(user);
+
         var claims = new[]
         {
             new Claim(JwtRegisteredClaimNames.Sub, user.Id.ToString()),
