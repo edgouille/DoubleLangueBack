@@ -1,4 +1,5 @@
-﻿using DoubleLangue.Domain.Enum;
+﻿using System;
+using DoubleLangue.Domain.Enum;
 using DoubleLangue.Domain.Models;
 using DoubleLangue.Infrastructure.Interface.Utils;
 using Microsoft.EntityFrameworkCore;
@@ -40,7 +41,8 @@ public static class DataSeeder
                 Email = email!,
                 Password = hasher.Hash(password!),
                 Role = UserRoleEnum.Admin,
-                CreatedAt = DateTime.UtcNow
+                CreatedAt = DateTime.UtcNow,
+                LastActivity = DateTime.UtcNow
             };
 
             context.Users.Add(admin);
