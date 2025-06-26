@@ -17,8 +17,7 @@ public class User
     public UserRoleEnum Role { get; init; }
     [Required]
     public DateTime CreatedAt { get; init; }
-
-    //todo ...
-
+    public int Score { get; set; } = 0;
+    public DateTime LastActivity { get; set; }
 
 }
