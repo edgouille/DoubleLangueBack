@@ -1,6 +1,6 @@
 ﻿using System.Numerics;
 using System.Text;
-using DoubleLangue.Domain;
+using DoubleLangue.Domain.Models;
 using DoubleLangue.Services.Interfaces;
 
 namespace DoubleLangue.Services;

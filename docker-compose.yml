@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15
+    container_name: postgres_db
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin123
+      POSTGRES_DB: doublelangue_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
+
+
+# Install and use pgAdmin4 or DBeaver, then connect with these settings:
+
+# Host: localhost
+
+# Port: 5432
+
+# Database: doublelangue_db
+
+# Username: admin
+
+# Password: admin123
+
+
+# Connection string format:
+# "Host=localhost;Port=5432;Database=doublelangue_db;Username=admin;Password=admin123"
