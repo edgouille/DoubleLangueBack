@@ -23,6 +23,7 @@ builder.Services.AddEntityFrameworkNpgsql().AddDbContext<AppDbContext>(option =>
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IPasswordHasher, BcryptPasswordHasher>();
+builder.Services.AddScoped<IMathProblemGeneratorService, MathProblemGeneratorService>();
 
 builder.Services.AddAuthentication(options =>
 {
