@@ -9,5 +9,5 @@ public class Quiz
     public Guid Id { get; set; }
     public Guid UserId { get; set; }
     public DateTime CreatedAt { get; set; }
-    public List<QuizQuestion> Questions { get; set; } = new();
+    public List<QuizQuestion> Questions { get; set; } = [];
 }

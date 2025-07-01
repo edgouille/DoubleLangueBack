@@ -2,7 +2,7 @@ namespace DoubleLangue.Domain.Enum;
 
 public enum MathProblemType
 {
-    Result,
-    MissingNumber,
-    MissingOperator
+    Result,//0
+    MissingNumber,//1
+    MissingOperator//2
 }

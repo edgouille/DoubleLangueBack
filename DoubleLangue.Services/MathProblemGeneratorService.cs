@@ -41,15 +41,15 @@ public class MathProblemGeneratorService : IMathProblemGeneratorService
         {
             case MathProblemType.MissingNumber:
                 bool hideFirst = _random.Next(2) == 0;
-                question = hideFirst ? $"__ {op} {b} = {result}" : $"{a} {op} __ = {result}";
+                question = hideFirst ? $"X {op} {b} = {result}" : $"{a} {op} __ = {result}";
                 answer = hideFirst ? a.ToString() : b.ToString();
                 break;
             case MathProblemType.MissingOperator:
-                question = $"{a} __ {b} = {result}";
+                question = $"{a} X {b} = {result}";
                 answer = op.ToString();
                 break;
             default:
-                question = $"{a} {op} {b} = ?";
+                question = $"{a} {op} {b} = X";
                 answer = result.ToString();
                 break;
         }
