@@ -24,8 +24,6 @@ builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IPasswordHasher, BcryptPasswordHasher>();
 builder.Services.AddScoped<IMathProblemGeneratorService, MathProblemGeneratorService>();
-builder.Services.AddScoped<IQuizRepository, QuizRepository>();
-builder.Services.AddScoped<IQuizService, QuizService>();
 
 builder.Services.AddAuthentication(options =>
 {
