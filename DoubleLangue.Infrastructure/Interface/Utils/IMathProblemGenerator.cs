@@ -1,9 +1,9 @@
 using DoubleLangue.Domain.Enum;
 using DoubleLangue.Domain.Models;
 
-namespace DoubleLangue.Services.Interfaces;
+namespace DoubleLangue.Infrastructure.Interface.Utils;
 
-public interface IMathProblemGeneratorService
+public interface IMathProblemGenerator
 {
     MathProblem Generate(int level, MathProblemType type);
 }

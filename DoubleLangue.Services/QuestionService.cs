@@ -2,6 +2,7 @@ using DoubleLangue.Domain.Dto.Question;
 using DoubleLangue.Domain.Enum;
 using DoubleLangue.Domain.Models;
 using DoubleLangue.Infrastructure.Interface.Repositories;
+using DoubleLangue.Infrastructure.Interface.Utils;
 using DoubleLangue.Services.Interfaces;
 
 namespace DoubleLangue.Services;
@@ -9,12 +10,12 @@ namespace DoubleLangue.Services;
 public class QuestionService : IQuestionService
 {
     private readonly IQuestionRepository _repository;
-    private readonly IMathProblemGeneratorService _mathProblemGeneratorService;
+    private readonly IMathProblemGenerator _mathProblemGenerator;
 
-    public QuestionService(IQuestionRepository repository, IMathProblemGeneratorService mathProblemGeneratorService)
+    public QuestionService(IQuestionRepository repository, IMathProblemGenerator mathProblemGenerator)
     {
         _repository = repository;
-        _mathProblemGeneratorService = mathProblemGeneratorService;
+        _mathProblemGenerator = mathProblemGenerator;
     }
 
     public async Task<QuestionResponseDto> CreateAsync(QuestionCreateDto dto)
@@ -37,7 +38,7 @@ public class QuestionService : IQuestionService
 
     public async Task<QuestionResponseDto> GenerateAsync(int level, MathProblemType type)
     {
-       var question  = _mathProblemGeneratorService.Generate(level, type);
+       var question  = _mathProblemGenerator.Generate(level, type);
         if (question == null)
         {
             throw new InvalidOperationException("Failed to generate question.");

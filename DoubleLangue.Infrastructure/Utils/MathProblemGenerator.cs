@@ -1,10 +1,10 @@
 using DoubleLangue.Domain.Enum;
 using DoubleLangue.Domain.Models;
-using DoubleLangue.Services.Interfaces;
+using DoubleLangue.Infrastructure.Interface.Utils;
 
-namespace DoubleLangue.Services;
+namespace DoubleLangue.Infrastructure.Utils;
 
-public class MathProblemGeneratorService : IMathProblemGeneratorService
+public class MathProblemGenerator : IMathProblemGenerator
 {
     private readonly Random _random = new();
 
