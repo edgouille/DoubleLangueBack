@@ -23,7 +23,7 @@ public class QuestionController : ControllerBase
         return CreatedAtAction(nameof(GetById), new { id = result.Id }, result);
     }
 
-    [HttpPost]
+    [HttpPost("generate")]
     public async Task<IActionResult> GenerateQuestion([FromQuery] int level = 1, [FromQuery] MathProblemType type = MathProblemType.Result)
     {
         var result = await _service.GenerateAsync(level, type);

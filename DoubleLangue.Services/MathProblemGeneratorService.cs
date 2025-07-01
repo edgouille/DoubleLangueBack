@@ -10,14 +10,14 @@ public class MathProblemGeneratorService : IMathProblemGeneratorService
 
     public MathProblem Generate(int level, MathProblemType type)
     {
-        if (level < 1 || level > 3)
+        if (level < 0 || level > 2)
         {
-            throw new ArgumentException("level must be between 1 and 3", nameof(level));
+            throw new ArgumentException("level must be between 0 and 2", nameof(level));
         }
 
         int maxValue = level switch
         {
-            1 => 10,
+            0 => 10,
             2 => 20,
             _ => 100
         };
@@ -41,7 +41,7 @@ public class MathProblemGeneratorService : IMathProblemGeneratorService
         {
             case MathProblemType.MissingNumber:
                 bool hideFirst = _random.Next(2) == 0;
-                question = hideFirst ? $"X {op} {b} = {result}" : $"{a} {op} __ = {result}";
+                question = hideFirst ? $"X {op} {b} = {result}" : $"{a} {op} X = {result}";
                 answer = hideFirst ? a.ToString() : b.ToString();
                 break;
             case MathProblemType.MissingOperator:
