@@ -25,6 +25,13 @@ public class QuestionnaireController : ControllerBase
         return CreatedAtAction(nameof(GetById), new { id = result.Id }, result);
     }
 
+    [HttpPost("generate")]
+    public async Task<IActionResult> GenerateQuestionnaire([FromQuery] int level = 1)
+    {
+        var result = await _service.GenerateAsync(level);
+        return CreatedAtAction(nameof(GetById), new { id = result.Id }, result);
+    }
+
     [HttpGet("{id}")]
     public async Task<IActionResult> GetById(Guid id)
     {
@@ -47,6 +54,7 @@ public class QuestionnaireController : ControllerBase
             return BadRequest(e.Message);
         }
     }
+
 
     [HttpGet]
     [Authorize(Roles = "Admin")]

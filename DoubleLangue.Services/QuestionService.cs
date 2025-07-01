@@ -43,13 +43,19 @@ public class QuestionService : IQuestionService
         {
             throw new InvalidOperationException("Failed to generate question.");
         }
-        
-        return new QuestionResponseDto
+        var questionGenerated = new Question
         {
-            Id = Guid.NewGuid(),
             QuestionText = question.Question,
             CorrectAnswer = question.Answer,
             Difficulty = level
+        };
+        var response = await _repository.AddAsync(questionGenerated);
+        return new QuestionResponseDto
+        {
+            Id = response.Id,
+            QuestionText = response.QuestionText,
+            CorrectAnswer = response.CorrectAnswer,
+            Difficulty = response.Difficulty
         };
     }
 

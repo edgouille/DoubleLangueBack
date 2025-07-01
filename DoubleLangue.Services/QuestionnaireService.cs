@@ -1,7 +1,9 @@
 using DoubleLangue.Domain.Dto.Questionnaire;
+using DoubleLangue.Domain.Enum;
 using DoubleLangue.Domain.Models;
 using DoubleLangue.Infrastructure.Interface.Repositories;
 using DoubleLangue.Services.Interfaces;
+using System;
 
 namespace DoubleLangue.Services;
 
@@ -9,11 +11,13 @@ public class QuestionnaireService : IQuestionnaireService
 {
     private readonly IQuestionnaireRepository _questionnaireRepository;
     private readonly IQuestionRepository _questionRepository;
+    private readonly IQuestionService _questionService;
 
-    public QuestionnaireService(IQuestionnaireRepository questionnaireRepository, IQuestionRepository questionRepository)
+    public QuestionnaireService(IQuestionnaireRepository questionnaireRepository, IQuestionRepository questionRepository, IQuestionService questionService)
     {
         _questionnaireRepository = questionnaireRepository;
         _questionRepository = questionRepository;
+        _questionService = questionService;
     }
 
     public async Task<QuestionnaireResponseDto> CreateAsync(QuestionnaireCreateDto dto)
@@ -32,6 +36,47 @@ public class QuestionnaireService : IQuestionnaireService
             Description = questionnaire.Description,
             CreatedAt = questionnaire.CreatedAt
         };
+    }
+
+    public async Task<QuestionnaireResponseDto> GenerateAsync(int level)
+    {
+        var questionnaire = new Questionnaire
+        {
+            Title = "test" ,
+            Description = "test test 1",
+            CreatedAt = DateTime.UtcNow
+        };
+        questionnaire = await _questionnaireRepository.AddAsync(questionnaire);
+        for (var i = 0; i < 10; i++)
+        {
+            var rdmtype = (MathProblemType)new Random().Next(0, 3);
+            var question = await _questionService.GenerateAsync(level, rdmtype);
+            await _questionnaireRepository.AddQuestionAsync(new QuestionnaireQuestion
+            {
+                QuestionnaireId = questionnaire.Id,
+                QuestionId = question.Id,
+                OrderInQuiz = i
+            });
+        }
+
+        questionnaire = await _questionnaireRepository.GetByIdAsync(questionnaire.Id);
+
+        var qq = questionnaire?.Questions.OrderBy(q => q.OrderInQuiz).Select(q => new QuestionItemDto
+        {
+            Id = q.QuestionId,
+            QuestionText = q.Question?.QuestionText ?? string.Empty,
+            OrderInQuiz = q.OrderInQuiz
+        }).ToList() ?? new List<QuestionItemDto>();
+
+        return new QuestionnaireResponseDto
+        {
+            Id = questionnaire.Id,
+            Title = "Generated Questionnaire",
+            Description = "This is a generated questionnaire",
+            CreatedAt = DateTime.UtcNow,
+            Questions = qq
+        };
+
     }
 
     public async Task AddQuestionAsync(Guid questionnaireId, Guid questionId, int order)
