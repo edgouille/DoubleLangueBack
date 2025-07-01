@@ -55,12 +55,40 @@ public class QuestionnaireController : ControllerBase
         }
     }
 
-
     [HttpGet]
     [Authorize(Roles = "Admin")]
     public async Task<IActionResult> GetAll()
     {
         var items = await _service.GetAllAsync();
         return Ok(items);
+    }
+
+    [HttpPost("admin")]
+    [Authorize(Roles = "Admin")]
+    public async Task<IActionResult> CreateQuestionnaireByAdmin([FromBody] QuestionnaireAdminCreateDto dto)
+    {
+        try
+        {
+            var createDto = new QuestionnaireCreateDto
+            {
+                Title = dto.Title,
+                Description = dto.Description,
+                ExamDateTime = dto.ExamDateTime
+            };
+            var created = await _service.CreateAsync(createDto);
+
+            var order = 0;
+            foreach (var q in dto.QuestionsList)
+            {
+                await _service.AddQuestionAsync(created.Id, q, order++);
+            }
+
+            var result = await _service.GetByIdAsync(created.Id);
+            return CreatedAtAction(nameof(GetById), new { id = result!.Id }, result);
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
     }
 }

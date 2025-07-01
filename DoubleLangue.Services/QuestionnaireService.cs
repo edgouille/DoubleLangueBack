@@ -4,6 +4,7 @@ using DoubleLangue.Domain.Models;
 using DoubleLangue.Infrastructure.Interface.Repositories;
 using DoubleLangue.Services.Interfaces;
 using System;
+using System.Runtime.InteropServices.JavaScript;
 
 namespace DoubleLangue.Services;
 
@@ -26,7 +27,8 @@ public class QuestionnaireService : IQuestionnaireService
         {
             Title = dto.Title,
             Description = dto.Description,
-            CreatedAt = DateTime.UtcNow
+            CreatedAt = DateTime.UtcNow,
+            ExamDateTime = dto.ExamDateTime
         };
         await _questionnaireRepository.AddAsync(questionnaire);
         return new QuestionnaireResponseDto
@@ -34,7 +36,8 @@ public class QuestionnaireService : IQuestionnaireService
             Id = questionnaire.Id,
             Title = questionnaire.Title,
             Description = questionnaire.Description,
-            CreatedAt = questionnaire.CreatedAt
+            CreatedAt = questionnaire.CreatedAt,
+            ExamDateTime = questionnaire.ExamDateTime
         };
     }
 
@@ -42,9 +45,10 @@ public class QuestionnaireService : IQuestionnaireService
     {
         var questionnaire = new Questionnaire
         {
-            Title = "test" ,
-            Description = "test test 1",
-            CreatedAt = DateTime.UtcNow
+            Title = $"Generated Questionnaire of {DateTime.UtcNow.Date}" ,
+            Description = "Generated questionnaire",
+            CreatedAt = DateTime.UtcNow,
+            ExamDateTime = DateTime.UtcNow
         };
         questionnaire = await _questionnaireRepository.AddAsync(questionnaire);
         for (var i = 0; i < 10; i++)
@@ -71,9 +75,10 @@ public class QuestionnaireService : IQuestionnaireService
         return new QuestionnaireResponseDto
         {
             Id = questionnaire.Id,
-            Title = "Generated Questionnaire",
-            Description = "This is a generated questionnaire",
+            Title = questionnaire.Title,
+            Description = questionnaire.Description,
             CreatedAt = DateTime.UtcNow,
+            ExamDateTime = questionnaire.ExamDateTime,
             Questions = qq
         };
 
@@ -105,6 +110,7 @@ public class QuestionnaireService : IQuestionnaireService
             Title = questionnaire.Title,
             Description = questionnaire.Description,
             CreatedAt = questionnaire.CreatedAt,
+            ExamDateTime = questionnaire.ExamDateTime,
             Questions = questionnaire.Questions.OrderBy(q => q.OrderInQuiz).Select(q => new QuestionItemDto
             {
                 Id = q.QuestionId,
@@ -123,6 +129,7 @@ public class QuestionnaireService : IQuestionnaireService
             Title = q.Title,
             Description = q.Description,
             CreatedAt = q.CreatedAt,
+            ExamDateTime = q.ExamDateTime,
             Questions = q.Questions.OrderBy(q => q.OrderInQuiz).Select(q => new QuestionItemDto
             {
                 Id = q.QuestionId,
