@@ -68,4 +68,22 @@ public class QuestionnaireService : IQuestionnaireService
             }).ToList()
         };
     }
+
+    public async Task<List<QuestionnaireResponseDto>> GetAllAsync()
+    {
+        var questionnaires = await _questionnaireRepository.GetAllAsync();
+        return questionnaires.Select(q => new QuestionnaireResponseDto
+        {
+            Id = q.Id,
+            Title = q.Title,
+            Description = q.Description,
+            CreatedAt = q.CreatedAt,
+            Questions = q.Questions.OrderBy(q => q.OrderInQuiz).Select(q => new QuestionItemDto
+            {
+                Id = q.QuestionId,
+                QuestionText = q.Question?.QuestionText ?? string.Empty,
+                OrderInQuiz = q.OrderInQuiz
+            }).ToList()
+        }).ToList();
+    }
 }

@@ -20,6 +20,7 @@ public class UserController : ControllerBase
     }
 
     [HttpPost]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> CreateUser(UserCreateDto request)
     {
         try
@@ -34,6 +35,7 @@ public class UserController : ControllerBase
     }
 
     [HttpGet]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> GetAllUsers()
     {
         try
@@ -48,6 +50,7 @@ public class UserController : ControllerBase
     }
 
     [HttpGet("{id}")]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> GetUserById(string id)
     {
         if (!Guid.TryParse(id, out var guid))
@@ -68,6 +71,7 @@ public class UserController : ControllerBase
     }
 
     [HttpPut("{id}")]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> UpdateUser(string id, [FromBody] UserUpdateDto userDto)
     {
         if (!Guid.TryParse(id, out var guid))
@@ -86,6 +90,7 @@ public class UserController : ControllerBase
     }
 
     [HttpDelete("{id}")]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> DeleteUser(string id)
     {
         if (!Guid.TryParse(id, out var guid))

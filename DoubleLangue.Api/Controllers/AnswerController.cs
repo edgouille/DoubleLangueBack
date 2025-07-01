@@ -1,10 +1,12 @@
 using DoubleLangue.Domain.Dto.Answer;
 using DoubleLangue.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DoubleLangue.Api.Controllers;
 
 [ApiController]
+[Authorize]
 [Route("api/[controller]")]
 public class AnswerController : ControllerBase
 {
@@ -16,6 +18,7 @@ public class AnswerController : ControllerBase
     }
 
     [HttpPost]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> Create(AnswerCreateDto dto)
     {
         try

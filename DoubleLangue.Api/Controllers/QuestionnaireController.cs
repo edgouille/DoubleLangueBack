@@ -1,10 +1,12 @@
 using DoubleLangue.Domain.Dto.Questionnaire;
 using DoubleLangue.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DoubleLangue.Api.Controllers;
 
 [ApiController]
+[Authorize]
 [Route("api/[controller]")]
 public class QuestionnaireController : ControllerBase
 {
@@ -16,6 +18,7 @@ public class QuestionnaireController : ControllerBase
     }
 
     [HttpPost]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> Create(QuestionnaireCreateDto dto)
     {
         var result = await _service.CreateAsync(dto);
@@ -31,6 +34,7 @@ public class QuestionnaireController : ControllerBase
     }
 
     [HttpPost("{id}/question")]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> AddQuestion(Guid id, AddQuestionToQuestionnaireDto dto)
     {
         try
@@ -42,5 +46,13 @@ public class QuestionnaireController : ControllerBase
         {
             return BadRequest(e.Message);
         }
+    }
+
+    [HttpGet]
+    [Authorize(Roles = "Admin")]
+    public async Task<IActionResult> GetAll()
+    {
+        var items = await _service.GetAllAsync();
+        return Ok(items);
     }
 }

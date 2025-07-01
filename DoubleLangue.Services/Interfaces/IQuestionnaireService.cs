@@ -8,4 +8,5 @@ public interface IQuestionnaireService
     Task<QuestionnaireResponseDto> CreateAsync(QuestionnaireCreateDto dto);
     Task<QuestionnaireResponseDto?> GetByIdAsync(Guid id);
     Task AddQuestionAsync(Guid questionnaireId, Guid questionId, int order);
+    Task<List<QuestionnaireResponseDto>> GetAllAsync();
 }

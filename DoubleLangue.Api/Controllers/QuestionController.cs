@@ -1,11 +1,13 @@
 using DoubleLangue.Domain.Dto.Question;
 using DoubleLangue.Domain.Enum;
 using DoubleLangue.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DoubleLangue.Api.Controllers;
 
 [ApiController]
+[Authorize]
 [Route("api/[controller]")]
 public class QuestionController : ControllerBase
 {
@@ -17,6 +19,7 @@ public class QuestionController : ControllerBase
     }
 
     [HttpPost]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> Create(QuestionCreateDto dto)
     {
         var result = await _service.CreateAsync(dto);
@@ -31,6 +34,7 @@ public class QuestionController : ControllerBase
     }
 
     [HttpGet]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> GetAll()
     {
         var items = await _service.GetAllAsync();
