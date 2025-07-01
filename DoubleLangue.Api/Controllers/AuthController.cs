@@ -33,7 +33,7 @@ public class AuthController : ControllerBase
     [AllowAnonymous]
     public async Task<IActionResult> Login(UserLoginDto login)
     {
-        var user = await _userRepository.GetUserByEmailAsync(login.Email);
+        var user = await _userRepository.GetUserByIdentifierAsync(login.Identifier);
         if (user == null || !_passwordHasher.Verify(login.Password, user.Password))
         {
             return Unauthorized();
