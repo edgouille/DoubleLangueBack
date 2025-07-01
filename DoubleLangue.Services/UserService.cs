@@ -26,6 +26,12 @@ public class UserService : IUserService
             throw new Exception("Cet email est déjà utilisé.");
         }
 
+        var existingUserName = await _userRepository.GetUserByUserNameAsync(user.UserName);
+        if (existingUserName != null)
+        {
+            throw new Exception("Ce nom d'utilisateur est déjà utilisé.");
+        }
+
         var hashedPassword = _passwordHasher.Hash(user.Password);
 
         var newUser = new User
@@ -99,6 +105,24 @@ public class UserService : IUserService
             if (existingUser is null)
             {
                 return null;
+            }
+
+            if (user.UserName != null && user.UserName != existingUser.UserName)
+            {
+                var checkName = await _userRepository.GetUserByUserNameAsync(user.UserName);
+                if (checkName != null)
+                {
+                    throw new Exception("Ce nom d'utilisateur est déjà utilisé.");
+                }
+            }
+
+            if (user.Email != null && user.Email != existingUser.Email)
+            {
+                var checkEmail = await _userRepository.GetUserByEmailAsync(user.Email);
+                if (checkEmail != null)
+                {
+                    throw new Exception("Cet email est déjà utilisé.");
+                }
             }
 
             var updatedUser = new User

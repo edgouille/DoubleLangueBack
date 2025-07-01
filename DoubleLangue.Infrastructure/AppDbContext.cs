@@ -12,4 +12,17 @@ public class AppDbContext : DbContext
     public DbSet<Answer> Answers => Set<Answer>();
     public DbSet<Questionnaire> Questionnaires => Set<Questionnaire>();
     public DbSet<QuestionnaireQuestion> QuestionnaireQuestions => Set<QuestionnaireQuestion>();
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        base.OnModelCreating(modelBuilder);
+
+        modelBuilder.Entity<User>()
+            .HasIndex(u => u.UserName)
+            .IsUnique();
+
+        modelBuilder.Entity<User>()
+            .HasIndex(u => u.Email)
+            .IsUnique();
+    }
 }
