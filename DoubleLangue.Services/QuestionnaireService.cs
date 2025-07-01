@@ -4,6 +4,7 @@ using DoubleLangue.Domain.Models;
 using DoubleLangue.Infrastructure.Interface.Repositories;
 using DoubleLangue.Services.Interfaces;
 using System;
+using System.Runtime.InteropServices.JavaScript;
 
 namespace DoubleLangue.Services;
 
@@ -42,8 +43,8 @@ public class QuestionnaireService : IQuestionnaireService
     {
         var questionnaire = new Questionnaire
         {
-            Title = "test" ,
-            Description = "test test 1",
+            Title = $"Generated Questionnaire of {DateTime.UtcNow.Date}" ,
+            Description = "Generated questionnaire",
             CreatedAt = DateTime.UtcNow
         };
         questionnaire = await _questionnaireRepository.AddAsync(questionnaire);
@@ -71,8 +72,8 @@ public class QuestionnaireService : IQuestionnaireService
         return new QuestionnaireResponseDto
         {
             Id = questionnaire.Id,
-            Title = "Generated Questionnaire",
-            Description = "This is a generated questionnaire",
+            Title = questionnaire.Title,
+            Description = questionnaire.Description,
             CreatedAt = DateTime.UtcNow,
             Questions = qq
         };

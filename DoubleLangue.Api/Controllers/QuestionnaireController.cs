@@ -55,7 +55,6 @@ public class QuestionnaireController : ControllerBase
         }
     }
 
-
     [HttpGet]
     [Authorize(Roles = "Admin")]
     public async Task<IActionResult> GetAll()
@@ -63,4 +62,10 @@ public class QuestionnaireController : ControllerBase
         var items = await _service.GetAllAsync();
         return Ok(items);
     }
+
+    //[HttpPut]
+    //public async Task<IActionResult> CreateQuestionnaireByAdmin(title, description, exemaDate, level, QuestionsList)
+    //{
+
+    //}
 }
