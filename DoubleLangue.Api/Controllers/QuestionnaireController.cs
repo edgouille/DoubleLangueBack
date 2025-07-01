@@ -23,7 +23,7 @@ public class QuestionnaireController : ControllerBase
     }
 
     [HttpGet("{id}")]
-    public async Task<IActionResult> GetById(int id)
+    public async Task<IActionResult> GetById(Guid id)
     {
         var item = await _service.GetByIdAsync(id);
         if (item == null) return NotFound();
@@ -31,7 +31,7 @@ public class QuestionnaireController : ControllerBase
     }
 
     [HttpPost("{id}/question")]
-    public async Task<IActionResult> AddQuestion(int id, AddQuestionToQuestionnaireDto dto)
+    public async Task<IActionResult> AddQuestion(Guid id, AddQuestionToQuestionnaireDto dto)
     {
         try
         {

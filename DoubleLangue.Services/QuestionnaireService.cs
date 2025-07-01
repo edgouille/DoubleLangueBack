@@ -34,7 +34,7 @@ public class QuestionnaireService : IQuestionnaireService
         };
     }
 
-    public async Task AddQuestionAsync(int questionnaireId, int questionId, int order)
+    public async Task AddQuestionAsync(Guid questionnaireId, Guid questionId, int order)
     {
         var question = await _questionRepository.GetByIdAsync(questionId);
         var questionnaire = await _questionnaireRepository.GetByIdAsync(questionnaireId);
@@ -50,7 +50,7 @@ public class QuestionnaireService : IQuestionnaireService
         await _questionnaireRepository.AddQuestionAsync(qq);
     }
 
-    public async Task<QuestionnaireResponseDto?> GetByIdAsync(int id)
+    public async Task<QuestionnaireResponseDto?> GetByIdAsync(Guid id)
     {
         var questionnaire = await _questionnaireRepository.GetByIdAsync(id);
         if (questionnaire == null) return null;

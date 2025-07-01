@@ -24,7 +24,7 @@ public class QuestionRepository : IQuestionRepository
         return await _context.Questions.ToListAsync();
     }
 
-    public async Task<Question?> GetByIdAsync(int id)
+    public async Task<Question?> GetByIdAsync(Guid id)
     {
         return await _context.Questions.FindAsync(id);
     }

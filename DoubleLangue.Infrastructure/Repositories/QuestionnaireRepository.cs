@@ -30,7 +30,7 @@ public class QuestionnaireRepository : IQuestionnaireRepository
         return await _context.Questionnaires.ToListAsync();
     }
 
-    public async Task<Questionnaire?> GetByIdAsync(int id)
+    public async Task<Questionnaire?> GetByIdAsync(Guid id)
     {
         return await _context.Questionnaires
             .Include(q => q.Questions)

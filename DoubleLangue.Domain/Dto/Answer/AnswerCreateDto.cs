@@ -7,7 +7,7 @@ public class AnswerCreateDto
     [Required]
     public Guid UserId { get; set; }
     [Required]
-    public int QuestionId { get; set; }
+    public Guid QuestionId { get; set; }
     [Required]
     public string UserAnswer { get; set; } = string.Empty;
 }

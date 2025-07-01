@@ -43,7 +43,7 @@ public class AnswerService : IAnswerService
         };
     }
 
-    public async Task<AnswerResponseDto?> GetByIdAsync(int id)
+    public async Task<AnswerResponseDto?> GetByIdAsync(Guid id)
     {
         var answer = await _answerRepository.GetByIdAsync(id);
         if (answer == null) return null;

@@ -1,4 +1,5 @@
 using DoubleLangue.Domain.Dto.Question;
+using DoubleLangue.Domain.Enum;
 using DoubleLangue.Domain.Models;
 using DoubleLangue.Infrastructure.Interface.Repositories;
 using DoubleLangue.Services.Interfaces;
@@ -8,10 +9,12 @@ namespace DoubleLangue.Services;
 public class QuestionService : IQuestionService
 {
     private readonly IQuestionRepository _repository;
+    private readonly IMathProblemGeneratorService _mathProblemGeneratorService;
 
-    public QuestionService(IQuestionRepository repository)
+    public QuestionService(IQuestionRepository repository, IMathProblemGeneratorService mathProblemGeneratorService)
     {
         _repository = repository;
+        _mathProblemGeneratorService = mathProblemGeneratorService;
     }
 
     public async Task<QuestionResponseDto> CreateAsync(QuestionCreateDto dto)
@@ -25,10 +28,27 @@ public class QuestionService : IQuestionService
         await _repository.AddAsync(question);
         return new QuestionResponseDto
         {
-            Id = question.Id,
+            Id = Guid.NewGuid(),
             QuestionText = question.QuestionText,
             CorrectAnswer = question.CorrectAnswer,
             Difficulty = question.Difficulty
+        };
+    }
+
+    public async Task<QuestionResponseDto> GenerateAsync(int level, MathProblemType type)
+    {
+       var question  = _mathProblemGeneratorService.Generate(level, type);
+        if (question == null)
+        {
+            throw new InvalidOperationException("Failed to generate question.");
+        }
+        
+        return new QuestionResponseDto
+        {
+            Id = Guid.NewGuid(),
+            QuestionText = question.Question,
+            CorrectAnswer = question.Answer,
+            Difficulty = level
         };
     }
 
@@ -44,7 +64,7 @@ public class QuestionService : IQuestionService
         }).ToList();
     }
 
-    public async Task<QuestionResponseDto?> GetByIdAsync(int id)
+    public async Task<QuestionResponseDto?> GetByIdAsync(Guid id)
     {
         var q = await _repository.GetByIdAsync(id);
         if (q == null) return null;

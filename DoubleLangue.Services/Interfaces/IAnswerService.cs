@@ -6,5 +6,5 @@ namespace DoubleLangue.Services.Interfaces;
 public interface IAnswerService
 {
     Task<AnswerResponseDto> SaveAsync(AnswerCreateDto dto);
-    Task<AnswerResponseDto?> GetByIdAsync(int id);
+    Task<AnswerResponseDto?> GetByIdAsync(Guid id);
 }

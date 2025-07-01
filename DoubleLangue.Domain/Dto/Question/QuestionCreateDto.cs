@@ -9,5 +9,5 @@ public class QuestionCreateDto
     [Required]
     public string CorrectAnswer { get; set; } = string.Empty;
     [Required]
-    public string Difficulty { get; set; } = string.Empty;
+    public int Difficulty { get; set; }
 }
