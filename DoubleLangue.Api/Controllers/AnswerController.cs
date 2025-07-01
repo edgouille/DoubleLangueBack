@@ -30,7 +30,7 @@ public class AnswerController : ControllerBase
     }
 
     [HttpGet("{id}")]
-    public async Task<IActionResult> GetById(int id)
+    public async Task<IActionResult> GetById(Guid id)
     {
         var item = await _service.GetByIdAsync(id);
         if (item == null) return NotFound();

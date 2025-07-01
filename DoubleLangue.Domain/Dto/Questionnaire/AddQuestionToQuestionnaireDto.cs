@@ -5,7 +5,7 @@ namespace DoubleLangue.Domain.Dto.Questionnaire;
 public class AddQuestionToQuestionnaireDto
 {
     [Required]
-    public int QuestionId { get; set; }
+    public Guid QuestionId { get; set; }
     [Required]
     public int OrderInQuiz { get; set; }
 }

@@ -19,12 +19,12 @@ public class AnswerRepository : IAnswerRepository
         return answer;
     }
 
-    public async Task<Answer?> GetByIdAsync(int id)
+    public async Task<Answer?> GetByIdAsync(Guid id)
     {
         return await _context.Answers.FindAsync(id);
     }
 
-    public async Task<List<Answer>> GetByQuestionIdAsync(int questionId)
+    public async Task<List<Answer>> GetByQuestionIdAsync(Guid questionId)
     {
         return await _context.Answers.Where(a => a.QuestionId == questionId).ToListAsync();
     }

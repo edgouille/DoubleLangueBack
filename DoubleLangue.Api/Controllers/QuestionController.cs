@@ -1,4 +1,5 @@
 using DoubleLangue.Domain.Dto.Question;
+using DoubleLangue.Domain.Enum;
 using DoubleLangue.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
@@ -22,6 +23,13 @@ public class QuestionController : ControllerBase
         return CreatedAtAction(nameof(GetById), new { id = result.Id }, result);
     }
 
+    [HttpPost]
+    public async Task<IActionResult> GenerateQuestion([FromQuery] int level = 1, [FromQuery] MathProblemType type = MathProblemType.Result)
+    {
+        var result = await _service.GenerateAsync(level, type);
+        return CreatedAtAction(nameof(GetById), new { id = result.Id }, result);
+    }
+
     [HttpGet]
     public async Task<IActionResult> GetAll()
     {
@@ -30,7 +38,7 @@ public class QuestionController : ControllerBase
     }
 
     [HttpGet("{id}")]
-    public async Task<IActionResult> GetById(int id)
+    public async Task<IActionResult> GetById(Guid id)
     {
         var item = await _service.GetByIdAsync(id);
         if (item == null) return NotFound();
