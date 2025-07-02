@@ -1,6 +1,9 @@
 using DoubleLangue.Domain.Dto.Questionnaire;
 using DoubleLangue.Domain.Enum;
 using DoubleLangue.Services.Interfaces;
+using DoubleLangue.Domain.Dto.Answer;
+using System.Security.Claims;
+using System.IdentityModel.Tokens.Jwt;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,10 +15,12 @@ namespace DoubleLangue.Api.Controllers;
 public class QuestionnaireController : ControllerBase
 {
     private readonly IQuestionnaireService _service;
+    private readonly IAnswerService _answerService;
 
-    public QuestionnaireController(IQuestionnaireService service)
+    public QuestionnaireController(IQuestionnaireService service, IAnswerService answerService)
     {
         _service = service;
+        _answerService = answerService;
     }
 
     [HttpPost]
@@ -61,6 +66,23 @@ public class QuestionnaireController : ControllerBase
     {
         try
         {
+            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value ?? User.FindFirst(JwtRegisteredClaimNames.Sub)?.Value;
+            if (userIdClaim == null || !Guid.TryParse(userIdClaim, out var userId))
+            {
+                return Unauthorized();
+            }
+
+            foreach (var answer in dto.Answers)
+            {
+                var createDto = new AnswerCreateDto
+                {
+                    UserId = userId,
+                    QuestionId = answer.QuestionId,
+                    UserAnswer = answer.Answer
+                };
+                await _answerService.SaveAsync(createDto);
+            }
+
             var score = await _service.CheckAnswersAsync(dto.QuestionnaireId, dto.Answers);
             return Ok(new { score });
         }
