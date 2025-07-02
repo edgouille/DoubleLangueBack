@@ -41,7 +41,7 @@ public class QuestionnaireService : IQuestionnaireService
         };
     }
 
-    public async Task<QuestionnaireResponseDto> GenerateAsync(int level)
+    public async Task<QuestionnaireResponseDto> GenerateAsync(int level, MathProblemType? type)
     {
         var questionnaire = new Questionnaire
         {
@@ -53,8 +53,8 @@ public class QuestionnaireService : IQuestionnaireService
         questionnaire = await _questionnaireRepository.AddAsync(questionnaire);
         for (var i = 0; i < 10; i++)
         {
-            var rdmtype = (MathProblemType)new Random().Next(0, 3);
-            var question = await _questionService.GenerateAsync(level, rdmtype);
+            var currentType = type ?? (MathProblemType)new Random().Next(0, 3);
+            var question = await _questionService.GenerateAsync(level, currentType);
             await _questionnaireRepository.AddQuestionAsync(new QuestionnaireQuestion
             {
                 QuestionnaireId = questionnaire.Id,

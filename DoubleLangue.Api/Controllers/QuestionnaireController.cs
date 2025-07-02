@@ -1,4 +1,5 @@
 using DoubleLangue.Domain.Dto.Questionnaire;
+using DoubleLangue.Domain.Enum;
 using DoubleLangue.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -26,9 +27,9 @@ public class QuestionnaireController : ControllerBase
     }
 
     [HttpPost("generate")]
-    public async Task<IActionResult> GenerateQuestionnaire([FromQuery] int level = 1)
+    public async Task<IActionResult> GenerateQuestionnaire([FromQuery] int level = 1, [FromQuery] MathProblemType? type = null)
     {
-        var result = await _service.GenerateAsync(level);
+        var result = await _service.GenerateAsync(level, type);
         return CreatedAtAction(nameof(GetById), new { id = result.Id }, result);
     }
 
