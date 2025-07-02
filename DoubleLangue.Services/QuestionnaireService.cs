@@ -4,7 +4,8 @@ using DoubleLangue.Domain.Models;
 using DoubleLangue.Infrastructure.Interface.Repositories;
 using DoubleLangue.Services.Interfaces;
 using System;
-using System.Runtime.InteropServices.JavaScript;
+
+using System.Linq;
 
 namespace DoubleLangue.Services;
 
@@ -41,7 +42,7 @@ public class QuestionnaireService : IQuestionnaireService
         };
     }
 
-    public async Task<QuestionnaireResponseDto> GenerateAsync(int level, MathProblemType? type)
+    public async Task<QuestionnaireResponseDto> GenerateAsync(int level, MathProblemType? type, bool isTest)
     {
         var questionnaire = new Questionnaire
         {
@@ -69,6 +70,7 @@ public class QuestionnaireService : IQuestionnaireService
         {
             Id = q.QuestionId,
             QuestionText = q.Question?.QuestionText ?? string.Empty,
+            CorrectAnswer = isTest ? null : q.Question?.CorrectAnswer,
             OrderInQuiz = q.OrderInQuiz
         }).ToList() ?? new List<QuestionItemDto>();
 
@@ -137,5 +139,22 @@ public class QuestionnaireService : IQuestionnaireService
                 OrderInQuiz = q.OrderInQuiz
             }).ToList()
         }).ToList();
+    }
+
+    public async Task<int> CheckAnswersAsync(Guid questionnaireId, List<QuestionAnswerDto> answers)
+    {
+        var questionnaire = await _questionnaireRepository.GetByIdAsync(questionnaireId);
+        if (questionnaire == null)
+            throw new Exception("Questionnaire not found");
+
+        int score = 0;
+        foreach (var ans in answers)
+        {
+            var question = questionnaire.Questions.FirstOrDefault(q => q.QuestionId == ans.QuestionId)?.Question;
+            if (question == null) continue;
+            if (question.CorrectAnswer.Trim().Equals(ans.Answer.Trim(), StringComparison.OrdinalIgnoreCase))
+                score++;
+        }
+        return score;
     }
 }

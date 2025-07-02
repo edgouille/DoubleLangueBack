@@ -27,9 +27,9 @@ public class QuestionnaireController : ControllerBase
     }
 
     [HttpPost("generate")]
-    public async Task<IActionResult> GenerateQuestionnaire([FromQuery] int level = 1, [FromQuery] MathProblemType? type = null)
+    public async Task<IActionResult> GenerateQuestionnaire([FromQuery] int level = 1, [FromQuery] MathProblemType? type = null, [FromQuery] bool test = true)
     {
-        var result = await _service.GenerateAsync(level, type);
+        var result = await _service.GenerateAsync(level, type, test);
         return CreatedAtAction(nameof(GetById), new { id = result.Id }, result);
     }
 
@@ -49,6 +49,20 @@ public class QuestionnaireController : ControllerBase
         {
             await _service.AddQuestionAsync(id, dto.QuestionId, dto.OrderInQuiz);
             return NoContent();
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e.Message);
+        }
+    }
+
+    [HttpPost("evaluate")]
+    public async Task<IActionResult> EvaluateQuestionnaire([FromBody] QuestionnaireCheckDto dto)
+    {
+        try
+        {
+            var score = await _service.CheckAnswersAsync(dto.QuestionnaireId, dto.Answers);
+            return Ok(new { score });
         }
         catch (Exception e)
         {
