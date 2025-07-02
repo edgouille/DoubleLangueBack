@@ -86,8 +86,7 @@ public class QuestionnaireController : ControllerBase
             }
 
             var score = await _service.CheckAnswersAsync(dto.QuestionnaireId, dto.Answers);
-
-            _userService.UpdateAsync(userId, )
+            await _userService.IncreaseScoreAsync(userId, score);
             return Ok(new { score });
         }
         catch (Exception e)
