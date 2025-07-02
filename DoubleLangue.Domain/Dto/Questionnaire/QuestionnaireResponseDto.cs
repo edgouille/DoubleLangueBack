@@ -14,5 +14,6 @@ public class QuestionItemDto
 {
     public Guid Id { get; set; }
     public string QuestionText { get; set; } = string.Empty;
+    public string? CorrectAnswer { get; set; }
     public int OrderInQuiz { get; set; }
 }
