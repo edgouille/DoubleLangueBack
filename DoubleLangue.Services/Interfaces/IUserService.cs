@@ -11,4 +11,5 @@ public interface IUserService
     Task<UserResponseDto?> UpdateAsync(Guid id, UserUpdateDto user);
     Task DeleteAsync(Guid id);
     Task<List<UserLeaderboardDto>> GetLeaderboardAsync();
+    Task IncreaseScoreAsync(Guid userId, int scoreDelta);
 }

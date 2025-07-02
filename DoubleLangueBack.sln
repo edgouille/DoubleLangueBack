@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoubleLangue.Domain", "Doub
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoubleLangue.Services", "DoubleLangue.Services\DoubleLangue.Services.csproj", "{8640B7B6-FBD9-4346-C5D2-BDB23E36C44F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoubleLangue.test", "DoubleLangue.test\DoubleLangue.test.csproj", "{169D5A2F-4AB9-A4ED-3662-61ED22557A07}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Éléments de solution", "Éléments de solution", "{9C8CB701-102D-CF49-A3E0-89AC09D42C2C}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
@@ -41,10 +39,6 @@ Global
 		{8640B7B6-FBD9-4346-C5D2-BDB23E36C44F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8640B7B6-FBD9-4346-C5D2-BDB23E36C44F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8640B7B6-FBD9-4346-C5D2-BDB23E36C44F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{169D5A2F-4AB9-A4ED-3662-61ED22557A07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{169D5A2F-4AB9-A4ED-3662-61ED22557A07}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{169D5A2F-4AB9-A4ED-3662-61ED22557A07}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{169D5A2F-4AB9-A4ED-3662-61ED22557A07}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1556F586-43B7-4B88-84E1-D3CA6B51898A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1556F586-43B7-4B88-84E1-D3CA6B51898A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1556F586-43B7-4B88-84E1-D3CA6B51898A}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -52,8 +46,6 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0EB0E78C-87CA-407A-A6DE-10BA9FBBFD74}

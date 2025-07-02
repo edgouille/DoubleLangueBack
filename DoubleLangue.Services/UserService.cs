@@ -170,6 +170,7 @@ public class UserService : IUserService
         var users = await _userRepository.GetAllAsync();
         return users
             .OrderByDescending(u => u.Score)
+            .Take(100)
             .Select(u => new UserLeaderboardDto
             {
                 Id = u.Id.ToString(),
@@ -177,5 +178,17 @@ public class UserService : IUserService
                 Score = u.Score
             })
             .ToList();
+    }
+
+    public async Task IncreaseScoreAsync(Guid userId, int scoreDelta)
+    {
+        var user = await _userRepository.GetByIdAsync(userId);
+        if (user == null)
+        {
+            throw new Exception("User not found");
+        }
+
+        user.Score += scoreDelta;
+        await _userRepository.UpdateAsync(user);
     }
 }

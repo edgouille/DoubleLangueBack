@@ -16,11 +16,13 @@ public class QuestionnaireController : ControllerBase
 {
     private readonly IQuestionnaireService _service;
     private readonly IAnswerService _answerService;
+    private readonly IUserService _userService;
 
-    public QuestionnaireController(IQuestionnaireService service, IAnswerService answerService)
+    public QuestionnaireController(IQuestionnaireService service, IAnswerService answerService, IUserService userService)
     {
         _service = service;
         _answerService = answerService;
+        _userService = userService;
     }
 
     [HttpPost]
@@ -84,6 +86,8 @@ public class QuestionnaireController : ControllerBase
             }
 
             var score = await _service.CheckAnswersAsync(dto.QuestionnaireId, dto.Answers);
+
+            _userService.UpdateAsync(userId, )
             return Ok(new { score });
         }
         catch (Exception e)

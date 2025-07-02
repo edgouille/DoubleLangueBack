@@ -5,8 +5,10 @@ services:
     image: postgres:15
     container_name: postgres_db
     environment:
-      POSTGRES_USER: admin
-      POSTGRES_PASSWORD: admin123
+      POSTGRES_USER: admin # Default user
+      # You can change this to your preferred username
+      POSTGRES_PASSWORD: admin123 # Default password
+      # You can change this to your preferred password
       POSTGRES_DB: doublelangue_db
     ports:
       - "5432:5432"

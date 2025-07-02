@@ -33,6 +33,7 @@ public class AnswerController : ControllerBase
     }
 
     [HttpGet("{id}")]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> GetById(Guid id)
     {
         var item = await _service.GetByIdAsync(id);
