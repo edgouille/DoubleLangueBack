@@ -164,4 +164,18 @@ public class UserService : IUserService
             throw new Exception("Erreur lors de la suppression", ex);
         }
     }
+
+    public async Task<List<UserLeaderboardDto>> GetLeaderboardAsync()
+    {
+        var users = await _userRepository.GetAllAsync();
+        return users
+            .OrderByDescending(u => u.Score)
+            .Select(u => new UserLeaderboardDto
+            {
+                Id = u.Id.ToString(),
+                UserName = u.UserName,
+                Score = u.Score
+            })
+            .ToList();
+    }
 }
