@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Authorization;
 using DoubleLangue.Domain.Models;
 using Microsoft.IdentityModel.Tokens;
 using DoubleLangue.Domain.Dto.User;
+using System.Security.Claims;
+using System.IdentityModel.Tokens.Jwt;
 
 namespace DoubleLangue.Api.Controllers;
 
@@ -80,6 +82,51 @@ public class UserController : ControllerBase
         try
         {
             var updated = await _userService.UpdateAsync(guid, userDto);
+            if (updated is null) return NotFound();
+            return Ok(updated);
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
+    }
+
+    [HttpGet("me")]
+    public async Task<IActionResult> GetMe()
+    {
+        var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value ?? User.FindFirst(JwtRegisteredClaimNames.Sub)?.Value;
+        if (userIdClaim == null || !Guid.TryParse(userIdClaim, out var userId))
+        {
+            return Unauthorized();
+        }
+
+        try
+        {
+            var user = await _userService.GetByIdAsync(userId);
+            if (user == null) return NotFound();
+            return Ok(user);
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
+    }
+
+    [HttpPut("me")]
+    public async Task<IActionResult> UpdateMe([FromBody] UserUpdateDto userDto)
+    {
+        var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value ?? User.FindFirst(JwtRegisteredClaimNames.Sub)?.Value;
+        if (userIdClaim == null || !Guid.TryParse(userIdClaim, out var userId))
+        {
+            return Unauthorized();
+        }
+
+        // Prevent role change by regular users
+        userDto.Role = null;
+
+        try
+        {
+            var updated = await _userService.UpdateAsync(userId, userDto);
             if (updated is null) return NotFound();
             return Ok(updated);
         }
